@@ -4,10 +4,10 @@
 
 /*
 
-Plugin Name: WDL Family History and Genealogy Pedigree Chart
+Plugin Name: WDL Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
 Description: Adds a 3 Generation pedigree chart to your page
-Version: 1.0.1
+Version: 1.2
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
 License: GPL2
@@ -180,8 +180,20 @@ ob_start();
 	$father_id = $wpdb->get_var( "SELECT father_id FROM $table_name WHERE id = '$id'" );
 	$mother_id = $wpdb->get_var( "SELECT mother_id FROM $table_name WHERE id = '$id'" );
 
-
+// Create $sibling depend on which parent or parents are present in the database
+	
+	if ($father_id == 0) {
+		
+		$sibling = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE (mother_id = '$mother_id') AND id <> '$id'" );
+		
+	} else if ($mother_id == 0){
+			$sibling = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE (father_id = '$father_id') AND id <> '$id'" );
+			
+	} else {
+		
 	$sibling = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE (mother_id = '$mother_id' OR father_id = '$father_id') AND id <> '$id'" );
+	
+	}
 
 ?>	
 
@@ -828,7 +840,12 @@ function create_the_menus () {
 	
 // Create Top Admin Menu
 
-    add_menu_page( 'Pedigree Chart', 'Pedigree Chart', 'edit_dashboard', 'wdl-familytree-top-menu', 'create_main_menu',  plugins_url('wdl-pedigree-chart/images/tree.gif'));
+define( 'MYPLUGINNAME_PATH', plugin_dir_url(__FILE__));
+
+$path = MYPLUGINNAME_PATH;
+
+
+    add_menu_page( 'Pedigree Chart', 'Pedigree Chart', 'edit_dashboard', 'wdl-familytree-top-menu', 'create_main_menu',  $path.'/images/tree.gif');
 	
 // Stop Top Admin Menufrom appearing as a submenu
 	
@@ -840,7 +857,10 @@ function create_the_menus () {
 	
 	add_submenu_page( 'wdl-familytree-top-menu', 'Add Family Member', 'Add Family Member', 'edit_dashboard', 'add-submenu-add-family-member', 'add_new_family_member');
 
-		add_submenu_page( 'wdl-familytree-top-menu', 'Add Spouse', 'Add Spouse', 'edit_dashboard', 'add-submenu-add-spouse', 'add_spouse');
+	add_submenu_page( 'wdl-familytree-top-menu', 'Add Spouse', 'Add Spouse', 'edit_dashboard', 'add-submenu-add-spouse', 'add_spouse');
+	
+	add_submenu_page( 'wdl-familytree-top-menu', 'Broken/New Family Links', 'Broken/New Family Links', 'edit_dashboard', 'add-submenu-connect-links', 'connect_links');
+	
 	
 	add_submenu_page( 'wdl-familytree-top-menu', 'Family Member List', 'Family Member List', 'edit_dashboard', 'add-submenu-view-family-member', 'view_family_member');	
 	
@@ -1212,6 +1232,7 @@ include ('tablename.php');
 	<input type="radio" name="family_type" value="Father"  > Father
 	<input type="radio" name="family_type" value="Mother" > Mother
 	<input type="radio" name="family_type" value="Sibling" > Sibling
+    <input type="radio" name="family_type" value="Child" > Child
 
 <br /><br />
 
@@ -1458,11 +1479,32 @@ else if ($family_type == 'Sibling')
 
 	array('id'=>$lid));
 
-	}
+} else if ($family_type == 'Child')
+{
 	
+	$parent_sex = $wpdb->get_var( "SELECT sex FROM $table_name WHERE id = '$id'");
 	
+		if ($parent_sex =='Male') {
+		
+			$wpdb->update($table_name,
 
+			array('father_id'=>$id,
+			
+			),
 
+			array('id'=>$lid));
+		} else {
+			
+			$wpdb->update($table_name,
+
+			array('mother_id'=>$id,
+			
+			),
+
+			array('id'=>$lid));
+			
+		}
+}
  include ('auto_new_page.php');	
 
 
@@ -1708,6 +1750,137 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 
 // ------------------------------------------------------------------------------------------------------------ //
+
+
+
+
+
+
+
+
+
+
+//Create the Admin Sub Menu Fix Broken ar New Links Page
+
+
+function connect_links () {
+?>	
+
+
+<h2>WDL Pedigree Chart - Fix broken or Add New Family Links</h2>
+    <p>From this page you will be able to Fix broken or Add New Family Links</p>
+    <p>&nbsp;</p>
+<br />
+<br />
+
+
+
+<?php
+
+include ('tablename.php');	
+
+$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name ORDER BY first_name"; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+
+    $id=sanitize_text_field( $row["id"]); 
+	$id=check_input($row["id"]);
+	
+    $first_name=sanitize_text_field( $row["first_name"]); 
+	$first_name=check_input($row["first_name"]); 
+	
+    $family_name=sanitize_text_field( $row["family_name"]); 
+	$family_name=check_input($row["family_name"]); 
+	
+    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
+	$date_of_birth=check_input($row["date_of_birth"]); 
+    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	$options2.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	}
+?>
+    <form action="" method="post" name="new_link">
+
+	<label  align="left" for="person_id">Select First Person. *</label>
+	
+    <p></p>
+	
+    <select name="person_id" id="person_id" style="width: 400px">
+  	
+    <option><?=$options?> </option>
+	
+    </select>
+    <br />
+    <br />
+    Link as the son or daughter of
+    <br />
+    <br />
+    <label  align="left" for="parent_id">Parent</label>  
+    <p></p>
+    <select name="parent_id" id="parent_id" style="width: 400px">
+  	
+    <option><?=$options2?> </option>
+	
+    </select>
+
+	  <p></p>
+
+
+       <input type="submit" name="submit" id="submit" value="Submit" />
+    
+    </form>
+
+
+<?php
+
+//Get values from Form
+
+	$person_id = sanitize_text_field( $_POST['person_id'] ); 
+	$person_id = check_input( $_POST['person_id']);
+
+	$parent_id = sanitize_text_field( $_POST['parent_id'] ); 
+	$parent_id = check_input( $_POST['parent_id']);
+
+		
+	$parent = $wpdb->get_results( "SELECT * FROM $table_name WHERE id = '$parent_id'" );
+	
+	$parent_sex = $wpdb->get_var ("SELECT sex from $table_name WHERE id = '$parent_id'");
+
+	if ($parent_sex == 'Male'){
+	$family_id = $wpdb->get_var ("SELECT family_id from $table_name WHERE id = '$parent_id'");
+		
+		$wpdb->update($table_name,
+	array('father_id'=>check_input($parent_id), 'family_id'=>check_input($family_id)),
+	array('id'=>check_input($person_id)));
+	
+
+	
+	} else {
+		
+		$wpdb->update($table_name,
+	array('mother_id'=>check_input($parent_id)),
+	array('id'=>check_input($person_id)));
+		
+	}
+}
+
+//End the Admin Sub Menu Fix Broken ar New Links Page
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------ //
+
+
+
 
 
 
