@@ -300,7 +300,15 @@ ob_start();
 
 	include ('tablename.php');
 
+if ($father_id == "0")
+	{
+			$result = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE mother_id = '$mother_id' ORDER BY date_of_birth" );
+	} else if ($mother_id == "0") {
+		$result = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE father_id = '$father_id' ORDER BY date_of_birth" );
+	} else {	
+
 	$result = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE father_id = '$father_id' AND mother_id = '$mother_id' ORDER BY date_of_birth" );
+	}
 
 ?>
 
