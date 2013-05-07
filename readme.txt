@@ -6,7 +6,7 @@ Requires at least: 3.3
 Tested up to: 3.5.1
 Stable tag: 1.2.1
 
-Display 3 Generations of your Family on one page with this fully administrable pedigree chart.
+Display 3 Generations of your Family on one page with this fully administrable and functional pedigree chart.
 
 == Description ==
 
