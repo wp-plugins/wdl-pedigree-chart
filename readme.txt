@@ -18,21 +18,16 @@ Display 3 Generations of your Family on one page with this fully administrable p
 
 With this Plugin you have the ability
 
- 
-
 *   To add, view and display Family Members and their Information
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
 
- 
-
 Using the built in shortcodes you can
-
- 
 
 *   Add Siblings
 *   Add Multiple Spouses
 *   Add Children
+*   Create Family Menus
 
 == Installation ==
 
