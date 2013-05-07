@@ -14,8 +14,6 @@ Use the power of WordPress and its database to display your Family Tree online
 
 Display 3 Generations of your Family on one page with this fully administrable pedigree chart.
 
- 
-
 With this Plugin you have the ability
 
 *   To add, view and display Family Members and their Information
@@ -31,28 +29,31 @@ Using the built in shortcodes you can
 
 == Installation ==
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
+1. Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from the Plugins page.
+
+Or
+
+2. Use the Add New Plugin Option from within your Plugin Admin Page
+
 == Frequently Asked Questions ==
 
 **How do I start a Family Tree**
 
 Starting a tree with LB Pedigree Chart is extremely simple.
 
-*   Click the \'Start New Family\' link under the Pedigree Chart Menu on your admin dashboard
+*   Click the Start New Family link under the Pedigree Chart Menu on your admin dashboard
 *   Fill in the requested details on the the form that appears
 *   Click Submit.
 
 Thats It! You have now created the base person for your new tree
 
- 
 
 **How Do I Add New Family Member**
 
- 
 
 To add a New Family Member
 
- 
+
 
 *   Select the Add New Member Menu Option from the Pedigree Chart Menu on Admin Dashboard
 *   Select the Child member whose Father or Mother you are adding
@@ -96,7 +97,7 @@ To add a New Family Member
 
 
 == Changelog ==
-No Changes. 1st Version
+Latest version 1.2.2 has been reset to allow full access to all areas but is limited to a maximum of 20 members
 
 ==Readme Generator== 
 
