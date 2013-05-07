@@ -4,14 +4,13 @@
 
 /*
 
-Plugin Name: WDL Pedigree Chart
+Plugin Name: WDL Family History and Genealogy Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
 Description: Adds a 3 Generation pedigree chart to your page
-Version: 1.2.1
+Version: 1.2.2
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
 License: GPL2
-
 */
 
 
@@ -179,8 +178,8 @@ ob_start();
 	$result = $wpdb->get_results( "SELECT father_id, mother_id  FROM $table_name WHERE id = '$id' ORDER BY date_of_birth" );
 	$father_id = $wpdb->get_var( "SELECT father_id FROM $table_name WHERE id = '$id'" );
 	$mother_id = $wpdb->get_var( "SELECT mother_id FROM $table_name WHERE id = '$id'" );
-
-// Create $sibling depend on which parent or parents are present in the database
+	
+	// Create $sibling depend on which parent or parents are present in the database
 	
 	if ($father_id == 0) {
 		
@@ -195,10 +194,12 @@ ob_start();
 	
 	}
 
+
 ?>	
 
 <div id = "shortcode_outer">
 <div id = "shortcode_inner">
+
 	<!-- Create the table to display the list  -->
 	<span class="table_heading">Siblings</span>
 
@@ -299,8 +300,8 @@ ob_start();
 	// Obtain the information for the list
 
 	include ('tablename.php');
-
-if ($father_id == "0")
+	
+	if ($father_id == "0")
 	{
 			$result = $wpdb->get_results( "SELECT first_name, family_name, post_id FROM $table_name WHERE mother_id = '$mother_id' ORDER BY date_of_birth" );
 	} else if ($mother_id == "0") {
@@ -813,7 +814,7 @@ include ('tablename.php');
   spouse_id mediumint(9) NOT NULL,
   date_of_marriage VARCHAR(11) NOT NULL,
   marriage_id mediumint(9) NOT NULL
-   
+ 
   UNIQUE KEY id (id)
     );";
 	
@@ -847,7 +848,6 @@ register_activation_hook( __FILE__, 'create_a_marriage_table' );
 function create_the_menus () {
 	
 // Create Top Admin Menu
-
 define( 'MYPLUGINNAME_PATH', plugin_dir_url(__FILE__));
 
 $path = MYPLUGINNAME_PATH;
@@ -866,9 +866,8 @@ $path = MYPLUGINNAME_PATH;
 	add_submenu_page( 'wdl-familytree-top-menu', 'Add Family Member', 'Add Family Member', 'edit_dashboard', 'add-submenu-add-family-member', 'add_new_family_member');
 
 	add_submenu_page( 'wdl-familytree-top-menu', 'Add Spouse', 'Add Spouse', 'edit_dashboard', 'add-submenu-add-spouse', 'add_spouse');
-	
-	add_submenu_page( 'wdl-familytree-top-menu', 'Broken/New Family Links', 'Broken/New Family Links', 'edit_dashboard', 'add-submenu-connect-links', 'connect_links');
-	
+		
+
 	
 	add_submenu_page( 'wdl-familytree-top-menu', 'Family Member List', 'Family Member List', 'edit_dashboard', 'add-submenu-view-family-member', 'view_family_member');	
 	
@@ -880,9 +879,11 @@ $path = MYPLUGINNAME_PATH;
 	
 	add_submenu_page( 'wdl-familytree-top-menu', 'Edit Marriage Date', 'Edit Marriage Date', 'edit_dashboard', 'add-submenu-edit-marriage-date', 'edit_marriage_date');
 	
-		add_submenu_page( 'wdl-familytree-top-menu', 'Delete Family Member', 'Delete Family Member', 'edit_dashboard', 'add-submenu-delete-person', 'delete_person');
+	add_submenu_page( 'wdl-familytree-top-menu', 'Broken/New Family Links', 'Edit/Create Links', 'edit_dashboard', 'add-submenu-connect-links', 'connect_links');
+	
+	add_submenu_page( 'wdl-familytree-top-menu', 'Delete Family Member', 'Delete Family Member', 'edit_dashboard', 'add-submenu-delete-person', 'delete_person');
 
-		add_submenu_page( 'wdl-familytree-top-menu', 'Delete Marriage', 'Delete Marriage', 'edit_dashboard', 'add-submenu-delete-marriage', 'delete_marriage_data');
+	add_submenu_page( 'wdl-familytree-top-menu', 'Delete Marriage', 'Delete Marriage', 'edit_dashboard', 'add-submenu-delete-marriage', 'delete_marriage_data');
 
 
 
@@ -930,9 +931,9 @@ function create_main_menu () {
 
     <br />
     <br />
-    <p> If you like this Plugin please donate so I can keep improving it</p> 
+    <p> If you like view more information or to view the Frequently asked Questions</p> 
     <br />
-	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=NRKB9T6BFBDPL" target="_blank" rel="nofollow"> <img src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" alt="" /></a>
+	<a href="http://lyons-barton.com/wdl-pedigree-chart/"> More Information</a>
 
 	<br />
     <br />
@@ -944,7 +945,11 @@ function create_main_menu () {
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
 <?php
+
+
+
 }
+
 
 
 
@@ -970,8 +975,15 @@ function create_main_menu () {
 
 
 
-
 function start_new_family_page () {
+	
+include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
+
+		
 ?>
 <div class="wrap">
 <h2>WDL Pedigree Chart - Start A New Family</h2>
@@ -1156,10 +1168,35 @@ $wpdb->insert($table_name,array('first_name'=>$first_name,'family_name'=>$family
 	
 include ('auto_new_page.php');
 $wpdb->insert($table_name,array('person_id'=>$id));
+
+
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
 }
-
-
-
+}
 
 
 
@@ -1188,6 +1225,12 @@ $wpdb->insert($table_name,array('person_id'=>$id));
 
 
 function add_new_family_member () {
+	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
 ?>
 <div class="wrap">
 
@@ -1516,6 +1559,32 @@ else if ($family_type == 'Sibling')
  include ('auto_new_page.php');	
 
 
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
+}
 }
 
 
@@ -1545,6 +1614,12 @@ else if ($family_type == 'Sibling')
 
 
 function add_spouse () {
+	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
 ?>
 <div class="wrap">
 
@@ -1745,6 +1820,32 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-spouse");
 
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
+}
 }
 
 
@@ -1772,12 +1873,18 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 
 function connect_links () {
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
 ?>	
 
 
 <h2>WDL Pedigree Chart - Fix broken or Add New Family Links</h2>
     <p>From this page you will be able to Fix broken or Add New Family Links</p>
-    <p>&nbsp;</p>
+    <p>Links break for all sorts of reasons. Use this page to re-established these broken links </p>
+    <p>This page also changes the family ID to the fathers Family ID when the parent chosen is the the father of the child.</p>
 <br />
 <br />
 
@@ -1872,9 +1979,37 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
 	array('id'=>check_input($person_id)));
 		
 	}
-}
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
+}
+}
 //End the Admin Sub Menu Fix Broken ar New Links Page
+
+
+
 
 
 
@@ -1897,13 +2032,15 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
 
 
 
-
-
-
 //Create the Admin Sub Menu View Family Member Page
 
 
 function view_family_member () {
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
 	
 ?>
 
@@ -1975,6 +2112,32 @@ function view_family_member () {
 
 <?php 
 
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
+}
 }
 
 //End the Admin Sub Menu View Family Member Page
@@ -2008,10 +2171,16 @@ function view_family_member () {
 
 
 
-//	$result = $wpdb->get_results( "SELECT $table_name.first_name, $table_name.family_name, $table_name.post_id FROM $table_name JOIN $table_name2 ON ($table_name.id=$table_name2.spouse_id) WHERE ($table_name.id = $table_name2.person_id) OR ($table_name.id = $table_name2.spouse_id)" );
+	$result = $wpdb->get_results( "SELECT $table_name.first_name, $table_name.family_name, $table_name.post_id FROM $table_name JOIN $table_name2 ON ($table_name.id=$table_name2.spouse_id) WHERE ($table_name.id = $table_name2.person_id) OR ($table_name.id = $table_name2.spouse_id)" );
 
 
 function view_a_spouse () {
+	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
 	
 ?>
 
@@ -2028,29 +2197,28 @@ function view_a_spouse () {
 
 	include ('tablename.php'); 
 
-	
+
 	$result = $wpdb->get_results( "SELECT DISTINCT
-	
-	a.id, 
-	a.first_name AS spouse1_first_name, 
-	a.family_name AS spouse1_family_name,
+ 	
+	a.id,
+    a.first_name AS spouse1_first_name,
+    a.family_name AS spouse1_family_name,
     j.date_of_marriage,
     j.marriage_id,
     b.id,  
 	j.person_id,
 	b.first_name AS spouse2_first_name,
     b.family_name AS spouse2_family_name
+
 	FROM $table_name2 j
   	INNER JOIN $table_name a
     ON a.id = j.person_id
   	INNER JOIN $table_name b
     ON  b.id = j.spouse_id
 	
-	 " );
+	"  );
 
 	$spouse_id = $wpdb->get_var ("SELECT spouse_id from $table_name2 WHERE person_id = '.$result->id.'");
-
-
 
 ?>
 
@@ -2060,12 +2228,14 @@ function view_a_spouse () {
 	<table class="menu_table">
 
 
-	<th class="menu_heading_fn">First Name</th>
+	<th class="menu_heading_fn">
+	First Name</th>
+	<th class="menu_heading_famn">
+	Family Name</th>
 
-	<th class="menu_heading_famn">Family Name</th>
-
-    <th class="menu_heading_married">Marriage Date</th>
-
+	<th class="menu_heading_married">
+	Marriage Date
+	</th>
 
 	<th class="menu_heading_fn">
 	First Name</th>
@@ -2088,6 +2258,7 @@ function view_a_spouse () {
 
 	<td ><?php echo htmlspecialchars($result->spouse1_first_name);?></td>
 	<td ><?php echo htmlspecialchars($result->spouse1_family_name);?></td>
+
 	<td class="text_marriage" ><?php echo htmlspecialchars($result->date_of_marriage);?></td>
 
 	<td ><?php echo htmlspecialchars($result->spouse2_first_name);?></td>
@@ -2098,8 +2269,6 @@ function view_a_spouse () {
 	</tr>
 
 <?php 
-
-
 
 } 
 
@@ -2118,6 +2287,32 @@ function view_a_spouse () {
 
 <?php 
 
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?	
+}
 }
 
 
@@ -2148,28 +2343,261 @@ function view_a_spouse () {
 
 //Create the Admin Sub Menu Edit Person Page
 
-	
+	ob_start();
+	global $wpdb;
+
+
+
+
+	$result = $wpdb->get_results( "SELECT $table_name.first_name, $table_name.family_name, $table_name.post_id FROM $table_name JOIN $table_name2 ON ($table_name.id=$table_name2.spouse_id) WHERE ($table_name.id = $table_name2.person_id) OR ($table_name.id = $table_name2.spouse_id)" );
 
  
 function edit_person() {
-
-	?>
-<!-- Create the main menu page -->
-<div class=""wrap">
-    <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for choosing WDL Family History</p>
-
-    <br />
-    <br />
-    <p>The Edit Family Member Option is available in the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-    <p>If you do not wish to purchase the Full Version of WDL Pedigree Chart, you can make the changes directly to your database. The means to do this varies and will depend on your blog host.</p>
 	
-    <p> To see what the Full Version has to offer please Click On the link below</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
+		
+
+	include ('tablename.php');
+	$p_id = NULL;
+
+	$sql="SELECT * FROM $table_name ORDER BY first_name"; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+
+
+
+    $p_id=sanitize_text_field( $row["id"]); 
+	$p_id=check_input($p_id);
+	
+	
+    $p_first_name=sanitize_text_field( $row["first_name"]); 
+	$p_first_name=check_input($p_first_name); 
+	
+    $p_family_name=sanitize_text_field( $row["family_name"]); 
+	$p_family_name=check_input($p_family_name); 
+	
+    $p_date_of_birth=sanitize_text_field( $row["date_of_birth"]);
+	$p_date_of_birth=check_input($p_date_of_birth);
+	
+    $p_options.="<OPTION VALUE='".$p_id. "'>".$p_id."   ---  ".$p_first_name ." ".$p_family_name."   ---  ".$p_date_of_birth; 
+	}
+
+?> 
+
+    <h2>WDL Pedigree Chart - Edit Family Member</h2>
+    <p>From this page you will be able to Edit Family Members</p>
+    
+    <p>&nbsp;</p>
+
+	<br />
+	<br />
+
+
+<div id="form">
+
+	<form action="" method="post">
+
+	<label  align="left" for="p_id"><strong>Step 1:</strong> Select the Person you wish to make changes to*</label>
+
+	<br />
+	<br />
+    
+	<select name="p_id" onchange='this.form.submit()'>
+  	
+    <option><?=$p_options?> </option>
+	
+    </select>
+
+	<noscript><input type="submit" value="choose"></noscript>
+
+	</form>
+
+	<br />
+ 	<br />
+    
+</div>
+
+<?php
+
+	$p_id = sanitize_text_field( $_POST[p_id]);
+	$p_id = check_input( $p_id,"You Need to Select the Person who You are Making Changes To");
+
+
+	$result = $wpdb->get_results( "SELECT first_name, family_name, date_of_birth, date_of_death, id  FROM $table_name"); 
+
+
+
+	$first_name = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $p_id" );
+	$first_name =sanitize_text_field($first_name);
+	$first_name =check_input($first_name);
+
+	$family_name = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $p_id" );
+	$family_name =sanitize_text_field($family_name);
+	$family_name =check_input($family_name);
+
+
+	$date_of_birth = $wpdb->get_var( "SELECT date_of_birth FROM $table_name WHERE id = $p_id" );
+	$date_of_birth =sanitize_text_field($date_of_birth);
+	$date_of_birth =check_input($date_of_birth);
+
+	$date_of_death = $wpdb->get_var( "SELECT date_of_death FROM $table_name WHERE id = $p_id" );
+	$date_of_death =sanitize_text_field($date_of_death);
+	$date_of_death =check_input($date_of_death);
+
+
+
+	$sex = $wpdb->get_var( "SELECT sex FROM $table_name WHERE id = $p_id" );
+	$sex =sanitize_text_field($sex);
+	$sex =check_input($sex);
+
+?>
+
+<div id="form">
+
+  	<fieldset>
+
+  	<legend class="legend"><strong>Step 2:</strong> Make the Required Changes.</legend>
+
+	<br />
+
+	<div id="inner_form">
+  	
+    <form action="" method="post" name="edit_person" >
+
+   	<input name="p_id" id="p_id" type="hidden" value="<? echo htmlspecialchars($p_id)?>" />
+
+    <p>
+
+    <label for="first_name"><strong>First and Middle Names</strong></label><br />
+
+    <input name="first_name" default=""   type="text" id="first_name" value="<? echo htmlspecialchars($first_name)?>"  " maxlength="50" />
+
+	</p>
+
+	<br />
+
+    <p> 
+    
+    <label for="family_name"><strong>Family Name</strong></label><br />
+
+    <input name="family_name" default="" type="text" id="family_name" value="<? echo htmlspecialchars($family_name)?>"  maxlength="50" />
+
+	</p>
+
+	<br />
+    
+    <p>
+
+    <label for="date_of_birth"><strong>Date of Birth</strong></label><br />
+
+    <input type="text" default=""  name="date_of_birth" id="date_of_birth" value="<? echo htmlspecialchars($date_of_birth)?>" maxlength="20"/>
+
+	</p>
+
+	<br />    
+    
+    <p>
+
+    <label for="date_of_death"><strong>Date Of Death</strong> </label><br />
+      
+    <input type="text" default="" name="date_of_death" id="date_of_death" value="<? echo htmlspecialchars($date_of_death)?>" maxlength="20" />
+    
+    </p>
+
+    <br />
+   
+    <p>  
+    
+    <label for="date_of_death"><strong>Sex</strong></label>
     
     <br />
+        
+    <input type="text" default=""  name="sex" id="sex" value="<? echo htmlspecialchars($sex)?>" maxlength="6" />
+      
+  	</p>
+
+	<br />
+
+    <p>
+
+    <input type="submit" name="submit" id="submit" value="Submit" />
+
+    </p>
+
+  	</form>
+
+  	</div>  
+
+  	</fieldset>
+
+
+</div>
+
+<?php
+
+	if(isset($_POST['submit'])) {
+
+
+
+	$first_name = sanitize_text_field($_POST['first_name']);
+	$first_name = check_input( $first_name);
+
+	$family_name = sanitize_text_field($_POST['family_name']);
+	$family_name = check_input( $family_name);
+
+	$date_of_birth = sanitize_text_field($_POST['date_of_birth']);
+	$date_of_birth = check_input( $date_of_birth);
+
+	$date_of_death = sanitize_text_field($_POST['date_of_death']);
+	$date_of_death = check_input( $date_of_death);
+
+	$sex = sanitize_text_field($_POST['sex']);
+	$sex = check_input( $sex);
+
+	$p_id = sanitize_text_field($_POST['p_id']);
+	$p_id = check_input( $p_id);
+
+	include ('tablename.php');
+
+
+	$wpdb->update($table_name,
+	array('first_name'=>$first_name,'family_name'=>$family_name,'date_of_birth'=>$date_of_birth,'date_of_death'=>$date_of_death,'sex'=>$sex
+	),
+	array('id'=>$p_id));
+	
+	$ch_post_id = $wpdb->get_var( "SELECT post_id FROM $table_name WHERE id =$p_id" );	
+	$table_name = $wpdb->prefix . "posts";
+
+	$wpdb->update('wp_posts',
+	array('post_title'=>$first_name." ".$family_name
+	),
+	array('id'=>$ch_post_id));
+	
+	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-family-member");
+}
+
+} else {
+?>	
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+
+    <br />
+    <br />
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <br />
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+
 	<br />
     <br />
     <hr>
@@ -2179,8 +2607,10 @@ function edit_person() {
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?php
+<?	
 }
+}
+
 
 
 //End the Admin Sub Menu Edit Person Page
@@ -2212,20 +2642,251 @@ function edit_person() {
 
 function edit_marriage_date () {
 	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
+	
+?>	
+
+	 <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
+
+<?php
+	ob_start();
+	include ('tablename.php');
+
+	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+
+
+
+    $id=sanitize_text_field( $row["id"]); 
+	$id=check_input($row["id"]);
+	
+    $first_name=sanitize_text_field( $row["first_name"]); 
+	$first_name=check_input($row["first_name"]); 
+	
+    $family_name=sanitize_text_field( $row["family_name"]); 
+	$family_name=check_input($row["family_name"]); 
+	
+    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
+	$date_of_birth=check_input($row["date_of_birth"]); 
+	
+    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	}
+
+?> 
+    <h2>WDL Pedigree Chart - Add Spouse</h2>
+    
+    <p>From this page you will be able to add a New Family Members to your family trees</p>
+    <p>&nbsp;</p>
+
+	<br />
+	<br />
+
+<div id="form">
+	
+    <form action="" method="post" name="new_person">
+
+	<label  align="left" for="person_id">Select Spouse 1. *</label>
+	
+    <p></p>
+	
+    <select name="person_id" id="person_id" style="width: 400px">
+  	
+    <option><?=$options?> </option>
+	
+    </select>
+
+    <br />
+    <br  />
+    
+<?php
+
+	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+	unset ($spouse_id);
+
+    $id=sanitize_text_field( $row["id"]); 
+	$id=check_input($row["id"]);
+	
+    $first_name=sanitize_text_field( $row["first_name"]); 
+	$first_name=check_input($row["first_name"]); 
+	
+    $family_name=sanitize_text_field( $row["family_name"]); 
+	$family_name=check_input($row["family_name"]); 
+	
+    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
+	$date_of_birth=check_input($row["date_of_birth"]); 
+    $options_f.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	}
+	
 ?>
-<!-- Create the main menu page -->
-<div class=""wrap">
+
+	<label  align="left" for="spouse_id">Select Spouse 2. *</label>
+	
+    <p></p>
+	
+    <select name="spouse_id"  id="spouse_id" style="width: 400px">
+  	
+    <option><?=$options_f?> </option>
+	
+    </select>
+     
+    <p>
+
+    <input type="submit" name="choose" id="choose" value="Choose Marriage Partners" />
+
+    </p>
+
+	</form>
+    
+    <br />
+    <br />
+    <br />
+    
+    <hr width=85% align="center" />
+    
+    <br />
+    <br />
+    <br />    
+
+<?php
+
+	include ('tablename.php');
+    $person_id = sanitize_text_field( $_POST["person_id"]); 
+	$person_id=check_input($person_id,"You Need to Select Spouse 1"); 
+
+	
+    $spouse_id=sanitize_text_field( $_POST["spouse_id"]); 
+	$spouse_id=check_input($spouse_id,"You Need to Select Spouse 2"); 
+	
+
+	
+	$result = $wpdb->get_results( "SELECT first_name, family_name,id  FROM $table_name"); 
+
+
+
+	$first_name = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $person_id" );
+	$first_name =sanitize_text_field($first_name);
+	$first_name =check_input($first_name);
+
+	$family_name = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $person_id" );
+	$family_name  =sanitize_text_field($family_name );
+	$family_name  =check_input($family_name );
+
+	$first_name_sp = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $spouse_id" );
+	$first_name_sp =sanitize_text_field($first_name_sp);
+	$first_name_sp =check_input($first_name_sp);
+
+	$family_name_sp = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $spouse_id" );
+	$family_name_sp =sanitize_text_field($family_name_sp );
+	$family_name_sp  =check_input($family_name_sp );
+
+	$result2 = $wpdb->get_results( "SELECT date_of_marriage, person_id, spouse_id  FROM $table_name2"); 
+
+	$date_of_marriage = $wpdb->get_var( "SELECT date_of_marriage FROM $table_name2 WHERE person_id = $person_id AND spouse_id = $spouse_id" );
+	$date_of_marriage =sanitize_text_field($date_of_marriage);
+	$date_of_marriage =check_input($date_of_marriage);
+
+
+	echo $first_name." ".$family_name;
+	unset ($first_name);
+	unset ($family_name);
+
+?>
+
+	<br />
+    <br />
+
+MARRIED
+
+	<br />
+    <br />
+
+<?php
+
+	echo $first_name_sp." ".$family_name_sp ;
+	unset ($first_name_sp);
+	unset ($family_name_sp);
+
+
+?>
+
+	<br />
+    <br />
+    
+on the
+
+	<br />
+    <br />
+
+	<form action="" method="post" >
+    
+    <p>
+	
+    <input type="text" default="" name="date_of_m" id="date_of_m" value="<? echo htmlspecialchars($date_of_marriage)?>" maxlength="20" />
+    
+    </p>
+
+	<input name="person_id" id="person_id" type="hidden" value="<? echo htmlspecialchars($person_id)?>" />
+   	
+    <input name="spouse_id" id="spouse_id" type="hidden" value="<? echo htmlspecialchars($spouse_id)?>" />
+
+    <input type="submit" name="submit" id="submit" value="Submit" />
+ 
+    </form>
+    
+<?php
+
+	if(isset($_POST['submit'])) {
+
+	$date_of_marriage = check_input( $date_of_m);
+
+
+	$date_of_m = sanitize_text_field($_POST['date_of_m']);
+	$date_of_m = check_input( $date_of_m);
+	$date_of_marriage = $date_of_m;
+
+	$person_id = sanitize_text_field($_POST['person_id']);
+	$person_id = check_input( $person_id);
+
+	$spouse_id = sanitize_text_field($_POST['spouse_id']);
+	$spouse_id = check_input( $spouse_id );
+
+	include ('tablename.php');
+	
+	$wpdb->update($table_name2,
+	array('date_of_marriage'=>$date_of_m),
+	array('person_id'=>$person_id,
+	'spouse_id'=>$spouse_id));
+	
+	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-spouse");
+
+}
+
+} else {
+?>	
+	<div class=""wrap">
     <?php screen_icon();?>
     <h2>WDL Family History</h2>
-    <p> Thankyou for choosing WDL Family History</p>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>The Edit Marriage Date Option is available in the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
-    <p>If you do not wish to purchase the Full Version of WDL Pedigree Chart, you can make the changes directly to your database. The means to do this varies and will depend on your blog host.</p>
 	
-    <p> To see what the Full Version has to offer please Click On the link below</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2237,8 +2898,8 @@ function edit_marriage_date () {
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?php
-
+<?	
+}
 }
 
 
@@ -2271,25 +2932,110 @@ function edit_marriage_date () {
 
 
 	ob_start();
+	global $wpdb;
 
+
+
+
+	$result = $wpdb->get_results( "SELECT $table_name.first_name, $table_name.family_name, $table_name.post_id FROM $table_name JOIN $table_name2 ON ($table_name.id=$table_name2.spouse_id) WHERE ($table_name.id = $table_name2.person_id) OR ($table_name.id = $table_name2.spouse_id)" );
 
  
 function delete_person() {
+	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 19) {
+		
 
-	?>
-<!-- Create the main menu page -->
-<div class=""wrap">
+	include ('tablename.php');
+	$p_id = NULL;
+
+	$sql="SELECT * FROM $table_name ORDER BY first_name"; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+
+    $p_id=sanitize_text_field( $row["id"]); 
+	$p_id=check_input($p_id);
+	
+	
+    $p_first_name=sanitize_text_field( $row["first_name"]); 
+	$p_first_name=check_input($p_first_name); 
+	
+    $p_family_name=sanitize_text_field( $row["family_name"]); 
+	$p_family_name=check_input($p_family_name); 
+	
+    $p_date_of_birth=sanitize_text_field( $row["date_of_birth"]);
+	$p_date_of_birth=check_input($p_date_of_birth);
+	
+    $p_options.="<OPTION VALUE='".$p_id. "'>".$p_id."   ---  ".$p_first_name ." ".$p_family_name."   ---  ".$p_date_of_birth; 
+	}
+
+?> 
+
+    <h2>WDL Pedigree Chart - Delete Family Member</h2>
+    <p>From this page you will be able to Edit Family Members</p>
+    
+    <p>&nbsp;</p>
+
+	<br />
+	<br />
+
+	<div id="form">
+  
+	<form action="" method="post">
+
+	<label  align="left" for="p_id"><strong>Step 1:</strong> Select the Person you wish to Delete*</label>
+
+	<br />
+    <br />
+    
+	<select name="p_id">
+  	
+    <option><?=$p_options?> </option>
+	
+    </select>
+    
+    <br />
+    <br />
+
+	<input type="submit" name="submit" id="submit" value="Delete Person" />
+
+	</form>
+
+	<br />
+	<br />
+
+
+<?php
+
+	$p_id = sanitize_text_field( $_POST[p_id]);
+	$p_id = check_input( $p_id,"You Need to Select the Person who You Wish To Delete");
+
+	$post_id = $wpdb->get_var( "SELECT post_id FROM $table_name WHERE id = $p_id" );
+
+	$id = $p_id;
+
+	$wpdb->query( "DELETE FROM $table_name WHERE id = $p_id" );
+
+	wp_delete_post($post_id);
+} else {
+?>	
+	<div class=""wrap">
     <?php screen_icon();?>
     <h2>WDL Family History</h2>
-    <p> Thankyou for choosing WDL Family History</p>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>The Delete Family Member Option is available in the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
-    <p>If you do not wish to purchase the Full Version of WDL Pedigree Chart, you can make the changes directly to your database. The means to do this varies and will depend on your blog host.</p>
 	
-    <p> To see what the Full Version has to offer please Click On the link below</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2301,9 +3047,10 @@ function delete_person() {
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?php
-
+<?	
 }
+}
+
 
 //End the Admin Sub Menu Delete Person Page
 
@@ -2334,21 +3081,157 @@ function delete_person() {
 
 
 function delete_marriage_data () {
+	
+	include ('tablename.php'); 
+$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
+	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
+	
+	if ($row_number <= 20) {
+
+?>	
+
+	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
+  
+<?php
+
+	ob_start();
+	include ('tablename.php');
+
+	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+
+
+
+    $id=sanitize_text_field( $row["id"]); 
+	$id=check_input($row["id"]);
+	
+    $first_name=sanitize_text_field( $row["first_name"]); 
+	$first_name=check_input($row["first_name"]); 
+	
+    $family_name=sanitize_text_field( $row["family_name"]); 
+	$family_name=check_input($row["family_name"]); 
+	
+    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
+	$date_of_birth=check_input($row["date_of_birth"]); 
+	
+    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	}
+
+?> 
+    
+    <h2>WDL Pedigree Chart - Add Spouse</h2>
+    <p>From this page you will be able to add a New Family Members to your family trees</p>
+    
+    <p>&nbsp;</p>
+
+	<br />
+	<br />
+
+<div id="form">
+	
+    <form action="" method="post" name="new_person">
+
+	<label  align="left" for="person_id">Select Spouse 1. *</label>
+	
+    <p></p>
+    
+	<select name="person_id" id="person_id" style="width: 400px">
+  	
+    <option><?=$options?> </option>
+	
+    </select>
+
+    <br />
+    <br  />
+    
+<?php
+
+	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
+	$result=mysql_query($sql); 
+
+	$options=""; 
+
+	while ($row=mysql_fetch_array($result)) { 
+	unset ($spouse_id);
+
+    $id=sanitize_text_field( $row["id"]); 
+	$id=check_input($row["id"]);
+	
+    $first_name=sanitize_text_field( $row["first_name"]); 
+	$first_name=check_input($row["first_name"]); 
+	
+    $family_name=sanitize_text_field( $row["family_name"]); 
+	$family_name=check_input($row["family_name"]); 
+	
+    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
+	$date_of_birth=check_input($row["date_of_birth"]); 
+    $options_f.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+	}
 
 ?>
-<!-- Create the main menu page -->
-<div class=""wrap">
+
+	<label  align="left" for="spouse_id">Select Spouse 2. *</label>
+	
+    <p></p>
+	
+    <select name="spouse_id"  id="spouse_id" style="width: 400px">
+  	
+    <option><?=$options_f?> </option>
+	
+    </select>
+    
+    <p>
+
+    <input type="submit" name="submit" id="submit" value="Delete Marriage" />
+
+    </p>
+
+	</form>
+    
+    <br />
+    <br />
+    <br />
+    
+    <hr width=85% align="center" />
+    
+    <br />
+    <br />
+    <br />  
+      
+<?php
+
+	include ('tablename.php');
+    $person_id = sanitize_text_field( $_POST["person_id"]); 
+	$person_id=check_input($person_id,"You Need to Select Spouse 1"); 
+
+	
+    $spouse_id=sanitize_text_field( $_POST["spouse_id"]); 
+	$spouse_id=check_input($spouse_id,"You Need to Select Spouse 2"); 
+	
+
+	
+
+
+	$wpdb->query( "DELETE FROM $table_name2 WHERE person_id = $person_id AND spouse_id = $spouse_id" );
+
+
+} else {
+?>	
+	<div class=""wrap">
     <?php screen_icon();?>
     <h2>WDL Family History</h2>
-    <p> Thankyou for choosing WDL Family History</p>
+    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>The Delete Marriage Option is available in the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
-    <p>If you do not wish to purchase the Full Version of WDL Pedigree Chart, you can make the changes directly to your database. The means to do this varies and will depend on your blog host.</p>
 	
-    <p> To see what the Full Version has to offer please Click On the link below</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2360,8 +3243,8 @@ function delete_marriage_data () {
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?php
-
+<?	
+}
 }
 
 
@@ -2385,7 +3268,7 @@ function delete_marriage_data () {
 
 
 
-// Add Check Function Function
+
 
 
 
