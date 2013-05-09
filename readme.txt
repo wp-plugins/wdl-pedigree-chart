@@ -27,6 +27,12 @@ Using the built in shortcodes you can
 *   Add Children
 *   Create Family Menus
 
+For all Support issues please use the FAQ's and forum located at the following address.
+
+*   <a href="http://lyons-barton.com/wdl-pedigree-chart/#faq">Frequently Asked Questions</a>
+*   <a href="http://lyons-barton.com/forums/forum/3881-2/"> WDL Pedigree Forum</a>
+
+
 == Installation ==
 
 1. Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from the Plugins page.
@@ -103,11 +109,10 @@ Latest version 1.2.2 has been reset to allow full access to all areas but is lim
 
 For all Support issues please use the FAQ's and forum located at the following address.
 
-<ul>
-<li><a href="http://lyons-barton.com/wdl-pedigree-chart/#faq">Frequently Asked Questions</a></li>
-<li><a href="http://lyons-barton.com/forums/forum/3881-2/"> WDL Pedigree Forum</a></li>
 
-</ul>
+*   <a href="http://lyons-barton.com/wdl-pedigree-chart/#faq">Frequently Asked Questions</a>
+*   <a href="http://lyons-barton.com/forums/forum/3881-2/"> WDL Pedigree Forum</a>
+
 
 
 ==Readme Generator== 
