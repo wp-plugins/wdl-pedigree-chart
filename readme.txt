@@ -99,6 +99,17 @@ To add a New Family Member
 == Changelog ==
 Latest version 1.2.2 has been reset to allow full access to all areas but is limited to a maximum of 20 members
 
+== Support ==
+
+For all Support issues please use the FAQ's and forum located at the following address.
+
+<ul>
+<li><a href="http://lyons-barton.com/wdl-pedigree-chart/#faq">Frequently Asked Questions</a></li>
+<li><a href="http://lyons-barton.com/forums/forum/3881-2/"> WDL Pedigree Forum</a></li>
+
+</ul>
+
+
 ==Readme Generator== 
 
 This Readme file was generated using <a href = 'http://sudarmuthu.com/wordpress/wp-readme'>wp-readme</a>, which generates readme files for WordPress Plugins.
