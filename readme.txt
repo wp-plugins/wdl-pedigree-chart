@@ -22,9 +22,10 @@ With this Version of the Plugin you have the ability
 
 Using the built in shortcodes you can
 
-*   Add Siblings
-*   Add Multiple Spouses
-*   Add Children
+*   Add 3 Generation Linkable Pedigree Chart
+*   Add Sibling List
+*   Add Multiple Spouses List
+*   Add Children List
 *   Create Family Menus
 
 With the Full Version you can:
