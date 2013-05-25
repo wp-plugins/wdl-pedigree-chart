@@ -930,7 +930,7 @@ function create_main_menu () {
     <p> Thankyou for choosing WDL Family History</p>
     <br />
     <br />
-    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (20)</p> 
+    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (20) and the Look and Feel Options being restricted</p> 
     <p>As a Family Historian myself , I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. This website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
 
 <p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
