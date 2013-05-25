@@ -14,7 +14,7 @@ Use the power of WordPress and its database to display your Family Tree online
 
 Display 3 Generations of your Family on one page with this fully administrable pedigree chart.
 
-With this Plugin you have the ability
+With this Version of the Plugin you have the ability
 
 *   To add, view and display Family Members and their Information
 *   Link to Personal Pages through the pedigree tree
@@ -26,6 +26,12 @@ Using the built in shortcodes you can
 *   Add Multiple Spouses
 *   Add Children
 *   Create Family Menus
+
+With the Full Version you can:
+
+*   Do All of the above
+*   Change the color scheme
+*   Change Font Properties
 
 For all Support issues please use the FAQ's and forum located at the following address.
 

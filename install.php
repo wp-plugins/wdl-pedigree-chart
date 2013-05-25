@@ -7,7 +7,7 @@
 Plugin Name: WDL Family History and Genealogy Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
 Description: Adds a 3 Generation pedigree chart to your page
-Version: 1.2.2
+Version: 1.3.2
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
 License: GPL2
@@ -885,7 +885,7 @@ $path = MYPLUGINNAME_PATH;
 
 	add_submenu_page( 'wdl-familytree-top-menu', 'Delete Marriage', 'Delete Marriage', 'edit_dashboard', 'add-submenu-delete-marriage', 'delete_marriage_data');
 
-
+	add_submenu_page( 'wdl-familytree-top-menu', 'Look and Feel', 'Look and Feel', 'edit_dashboard', 'add-submenu-change-look', 'change_look');
 
 }
 
@@ -3265,15 +3265,48 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 
 
-
-
-
 // --------------------------------------------------------------------------------------------------------------------------------------//
 
 
 
 
 
+function change_look () {
+
+?>
+<!-- Create the main menu page -->
+<div class=""wrap">
+    <?php screen_icon();?>
+    <h2>WDL Family History</h2>
+    <p> Thankyou for choosing WDL Family History</p>
+    <br />
+    <br />
+    <p>This is a Functional Plugin with the only restriction being the number of family members able to be entered in the database (20) and the Look and Feel Option being restricted</p> 
+    <p>To change the colors, fonts and tables produced by the shortcode please purchase the full version available  <a href="http://lyons-barton.com/wdl-pedigree-chart/" target ="blank">here</a> for only AUD $9.99</p>
+
+<p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
+
+<p>This is the reason I ask for a small fee to use the full version </p>
+    <br />
+    <br />
+    <p>If you like to view more information or to view the Frequently asked Questions</p> 
+    <br />
+	<a href="http://lyons-barton.com/wdl-pedigree-chart/"> More Information</a>
+
+	<br />
+    <br />
+    <hr>
+    <br />
+    <br />
+    <p class="subheading">Make Suggestions for improvements</p>
+ 
+    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
+</div>
+<?php
+
+
+
+}
 
 
 
