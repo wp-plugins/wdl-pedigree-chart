@@ -3284,7 +3284,15 @@ function change_look () {
     <p>This is a Functional Plugin with the only restriction being the number of family members able to be entered in the database (20) and the Look and Feel Option being restricted</p> 
     <p>To change the colors, fonts and tables produced by the shortcode please purchase the full version available  <a href="http://lyons-barton.com/wdl-pedigree-chart/" target ="blank">here</a> for only AUD $9.99</p>
 
-<p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
+<p>With the Full Version you can:</p>
+<p>
+<ul>
+<li>Do everything you can with this version,plus</li>
+<li>Change the Look and Feel to match your site</li>
+<li>Change the Font Properties (type, color, size, decoration)</li>
+<li>Change the Table size and location</li>
+<li>Change the Color Properties.</li>
+</ul></p>
 
 <p>This is the reason I ask for a small fee to use the full version </p>
     <br />
