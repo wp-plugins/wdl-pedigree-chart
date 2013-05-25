@@ -29,9 +29,12 @@ Using the built in shortcodes you can
 
 With the Full Version you can:
 
-*   Do All of the above
-*   Change the color scheme
-*   Change Font Properties
+*   Do all of the above, plus
+*   Change the Look and Feel to match your site
+*   Change the Font Properties (type, color, size, decoration)
+*   Change the Table size and location
+*   Change the Color Properties.
+
 
 For all Support issues please use the FAQ's and forum located at the following address.
 
