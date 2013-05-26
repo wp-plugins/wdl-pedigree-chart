@@ -930,8 +930,8 @@ function create_main_menu () {
     <p> Thankyou for choosing WDL Family History</p>
     <br />
     <br />
-    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (20) and the Look and Feel Options being restricted</p> 
-    <p>As a Family Historian myself , I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. This website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
+    <p>This is a fully Functional Plugin with the only restriction being the number of family members able to be entered in the database (3 Generations) and the Look and Feel Options being restricted</p> 
+    <p>As a Family Historian myself, I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. This website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
 
 <p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
 
@@ -988,7 +988,7 @@ include ('tablename.php');
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 
 		
 ?>
@@ -1237,7 +1237,7 @@ function add_new_family_member () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>
 <div class="wrap">
 
@@ -1626,7 +1626,7 @@ function add_spouse () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>
 <div class="wrap">
 
@@ -1884,7 +1884,7 @@ function connect_links () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>	
 
 
@@ -2047,7 +2047,7 @@ function view_family_member () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>
 
@@ -2187,7 +2187,7 @@ function view_a_spouse () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>
 
@@ -2365,7 +2365,7 @@ function edit_person() {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 		
 
 	include ('tablename.php');
@@ -2653,7 +2653,7 @@ function edit_marriage_date () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>	
 
@@ -2953,7 +2953,7 @@ function delete_person() {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <=06) {
 		
 
 	include ('tablename.php');
@@ -3093,7 +3093,7 @@ function delete_marriage_data () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 
 ?>	
 
@@ -3281,7 +3281,7 @@ function change_look () {
     <p> Thankyou for choosing WDL Family History</p>
     <br />
     <br />
-    <p>This is a Functional Plugin with the only restriction being the number of family members able to be entered in the database (20) and the Look and Feel Option being restricted</p> 
+    <p>This is a Functional Plugin with the only restriction being the number of family members able to be entered in the database (3 Generations) and the Look and Feel Option being restricted</p> 
     <p>To change the colors, fonts and tables produced by the shortcode please purchase the full version available  <a href="http://lyons-barton.com/wdl-pedigree-chart/" target ="blank">here</a> for only AUD $9.99</p>
 
 <p>With the Full Version you can:</p>

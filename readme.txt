@@ -16,7 +16,7 @@ Display 3 Generations of your Family on one page with this fully administrable p
 
 With this Version of the Plugin you have the ability
 
-*   To add, view and display Family Members and their Information
+*   To add, view and display Family Members and their Information (3 Generations)
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
 
@@ -35,6 +35,7 @@ With the Full Version you can:
 *   Change the Font Properties (type, color, size, decoration)
 *   Change the Table size and location
 *   Change the Color Properties.
+*	Remove the Three Generation Restriction
 
 
 For all Support issues please use the FAQ's and forum located at the following address.
