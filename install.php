@@ -1190,7 +1190,7 @@ $wpdb->insert($table_name,array('person_id'=>$id));
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -1840,7 +1840,7 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -1999,7 +1999,7 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -2132,7 +2132,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -2307,7 +2307,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -2603,7 +2603,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -2894,7 +2894,7 @@ on the
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -3043,7 +3043,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -3239,7 +3239,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <br />
 	
     <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
