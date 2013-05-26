@@ -1189,7 +1189,7 @@ $wpdb->insert($table_name,array('person_id'=>$id));
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -1578,8 +1578,8 @@ else if ($family_type == 'Sibling')
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDL Pedigree Chart has to offer</a>
 
 	<br />
     <br />
@@ -1839,7 +1839,7 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -1998,7 +1998,7 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2131,7 +2131,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2306,7 +2306,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2602,7 +2602,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2893,7 +2893,7 @@ on the
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -3042,7 +3042,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -3238,7 +3238,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the Look and Feel of the Shortcode tables  to match your site</p>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
