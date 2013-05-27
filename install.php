@@ -771,6 +771,33 @@ add_shortcode('add_pedigree', 'testpedigree');
 // ********* CREATE THE TWO TABLES WDL_PERSON AND WDL_MARRIAGES ********* 
 
 
+// ********* CREATE THE TWO TABLES WDL_PERSON AND WDL_MARRIAGES ********* 
+
+
+// Create the marriage table
+
+function create_a_marriage_table () {
+
+include ('tablename.php');
+   
+  $sql = "CREATE TABLE $table_name2 (
+  id mediumint(9) NOT NULL AUTO_INCREMENT,
+
+  person_id mediumint(9) NOT NULL,
+  spouse_id mediumint(9) NOT NULL,
+  date_of_marriage VARCHAR(11) NOT NULL,
+  marriage_id mediumint(9) NOT NULL,
+ 
+  UNIQUE KEY id (id)
+    );";
+	
+	  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+   dbDelta( $sql );
+}
+
+register_activation_hook( __FILE__, 'create_a_marriage_table' );
+
+
 
 
 // Create the person table
@@ -784,8 +811,8 @@ include ('tablename.php');
 
   first_name VARCHAR(60) NOT NULL,
   family_name VARCHAR(50) NOT NULL,
-  date_of_birth VARCHAR(10) NOT NULL,
-  date_of_death VARCHAR(10) NOT NULL,
+  date_of_birth VARCHAR(11) NOT NULL,
+  date_of_death VARCHAR(11) NOT NULL,
   family_id VARCHAR(60) NOT NULL,
   post_id VARCHAR(6) NOT NULL,
   father_id mediumint(9) NOT NULL,
@@ -801,27 +828,20 @@ include ('tablename.php');
 register_activation_hook( __FILE__, 'create_a_pedigree_table' );
 
 
-// Create the marriage table
 
-function create_a_marriage_table () {
 
-include ('tablename.php');
-   
-   $sql = "CREATE TABLE $table_name2 (
-  id mediumint(9) NOT NULL AUTO_INCREMENT,
 
-  person_id mediumint(9) NOT NULL,
-  spouse_id mediumint(9) NOT NULL,
-  date_of_marriage VARCHAR(10) NOT NULL,
- 
-  UNIQUE KEY id (id)
-    );";
-	
-	  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-   dbDelta( $sql );
-}
 
-register_activation_hook( __FILE__, 'create_a_marriage_table' );
+
+
+
+
+
+
+
+
+
+
 
 
 
