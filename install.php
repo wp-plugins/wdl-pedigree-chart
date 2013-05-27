@@ -807,6 +807,29 @@ function create_a_marriage_table () {
 
 include ('tablename.php');
    
+   $sql = "CREATE TABLE $table_name (
+  id mediumint(9) NOT NULL AUTO_INCREMENT,
+
+  first_name VARCHAR(60) NOT NULL,
+  family_name VARCHAR(50) NOT NULL,
+  date_of_birth VARCHAR(11) NOT NULL,
+  date_of_death VARCHAR(11) NOT NULL,
+  family_id VARCHAR(60) NOT NULL,
+  post_id VARCHAR(6) NOT NULL,
+  father_id mediumint(9) NOT NULL,
+  mother_id mediumint(9) NOT NULL,
+  sex tinytext NOT NULL,
+  UNIQUE KEY id (id)
+    );";
+	
+	  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+   dbDelta( $sql );
+}
+
+/*function create_a_marriage_table () {
+
+include ('tablename.php');
+   
   $sql = "CREATE TABLE $table_name2 (
   id mediumint(9) NOT NULL AUTO_INCREMENT,
 
@@ -820,7 +843,7 @@ include ('tablename.php');
 	
 	  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
    dbDelta( $sql );
-}
+}*/
 
 register_activation_hook( __FILE__, 'create_a_marriage_table' );
 
