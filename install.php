@@ -988,7 +988,7 @@ include ('tablename.php');
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 
 		
 ?>
@@ -1237,7 +1237,7 @@ function add_new_family_member () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>
 <div class="wrap">
 
@@ -1626,7 +1626,7 @@ function add_spouse () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>
 <div class="wrap">
 
@@ -1884,7 +1884,7 @@ function connect_links () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 ?>	
 
 
@@ -2047,7 +2047,7 @@ function view_family_member () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>
 
@@ -2187,7 +2187,7 @@ function view_a_spouse () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>
 
@@ -2365,7 +2365,7 @@ function edit_person() {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 		
 
 	include ('tablename.php');
@@ -2653,7 +2653,7 @@ function edit_marriage_date () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 	
 ?>	
 
@@ -2953,7 +2953,7 @@ function delete_person() {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 		
 
 	include ('tablename.php');
@@ -3093,7 +3093,7 @@ function delete_marriage_data () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 19) {
+	if ($row_number <= 06) {
 
 ?>	
 
