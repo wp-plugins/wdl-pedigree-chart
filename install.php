@@ -949,8 +949,8 @@ function create_main_menu () {
     <p> Thankyou for choosing WDL Family History</p>
     <br />
     <br />
-    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (20)</p> 
-    <p>As a Family Historian myself , I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. This website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
+    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (3 Generations) and the availability of the Look and Feel Menu Options</p> 
+    <p>As a Family Historian myself , I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. My website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
 
 <p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
 
@@ -1200,15 +1200,28 @@ $wpdb->insert($table_name,array('person_id'=>$id));
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -1589,15 +1602,28 @@ else if ($family_type == 'Sibling')
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -1850,15 +1876,26 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2009,15 +2046,28 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2066,7 +2116,7 @@ function view_family_member () {
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
 	
-	if ($row_number <= 07) {
+
 	
 ?>
 
@@ -2138,33 +2188,11 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 <?php 
 
-} else {
 ?>	
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
-
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
 <?	
 }
-}
+
 
 //End the Admin Sub Menu View Family Member Page
 
@@ -2205,8 +2233,8 @@ function view_a_spouse () {
 	include ('tablename.php'); 
 $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
+
+
 	
 ?>
 
@@ -2313,33 +2341,12 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 <?php 
 
-} else {
+
 ?>	
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
 
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
-
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
 <?	
 }
-}
+
 
 
 
@@ -2904,15 +2911,28 @@ on the
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -3053,15 +3073,28 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -3249,15 +3282,28 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 ?>	
 	<div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -3296,21 +3342,29 @@ function change_look () {
 <!-- Create the main menu page -->
 <div class=""wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for choosing WDL Family History</p>
+	<div class=""wrap">
+    <?php screen_icon();?>
     <br />
     <br />
-    <p>This is a Functional Plugin with the only restriction being the number of family members able to be entered in the database (3 Generations) and the Look and Feel Option being restricted</p> 
-    <p>To change the colors, fonts and tables produced by the shortcode please purchase the full version available  <a href="http://lyons-barton.com/wdl-pedigree-chart/" target ="blank">here</a> for only AUD $9.99</p>
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
-<p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
-
-<p>This is the reason I ask for a small fee to use the full version </p>
     <br />
     <br />
-    <p>If you like to view more information or to view the Frequently asked Questions</p> 
+    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
-	<a href="http://lyons-barton.com/wdl-pedigree-chart/"> More Information</a>
+	
+    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    
+    <ul>
+		<li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
+    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
     <br />
