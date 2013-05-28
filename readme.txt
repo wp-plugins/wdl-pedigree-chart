@@ -17,9 +17,9 @@ Display 3 Generations of your Family on one page with this fully administrable p
 With this Plugin you have the ability
 
 *   To add, view and display Family Members and their Information (3 Generations)
+*   Edit or Delete Members database information directly from the plugins menu pages
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
-*   Edit or Delete Members database information directly from the plugins menu pages
 
 Using the built in shortcodes you can
 
