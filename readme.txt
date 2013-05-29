@@ -14,9 +14,10 @@ Use the power of WordPress and its database to display your Family Tree online
 
 Display 3 Generations of your Family on one page with this fully administrable pedigree chart.
 
-With this Version of the Plugin you have the ability
+With this Plugin you have the ability
 
 *   To add, view and display Family Members and their Information (3 Generations)
+*   To Edit or Delete Family Database information directly through te Plugin Menus
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
 
@@ -34,8 +35,8 @@ With the Full Version you can:
 *   Change the Look and Feel to match your site
 *   Change the Font Properties (type, color, size, decoration)
 *   Change the Table size and location
-*   Change the Color Properties.
-*	Remove the Three Generation Restriction
+*   Change the Table and Font Color Properties.
+*   Remove the Three Generation Restriction
 
 
 For all Support issues please use the FAQ's and forum located at the following address.
