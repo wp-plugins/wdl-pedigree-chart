@@ -20,6 +20,8 @@ With this Plugin you have the ability
 *   To Edit or Delete Family Database information directly through te Plugin Menus
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
+*   Add the shortcodes below to add pedigree, sibling, spouse and children lists.
+*   Create a unique Database driven Menu system to navigate your site
 
 Using the built in shortcodes you can
 
