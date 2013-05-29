@@ -12,9 +12,9 @@ Display 3 Generations of your Family on one page with this fully administrable a
 
 Use the power of WordPress and its database to display your Family Tree online
 
-Display 3 Generations of your Family on one page with this fully administrable pedigree chart.
+Display 3 Generations of your Family on one page with this fully administrable plugin.
 
-With this Plugin you have the ability
+<strong>With this Plugin you have the ability</strong>
 
 *   To add, view and display Family Members and their Information (3 Generations)
 *   To Edit or Delete Family Database information directly through te Plugin Menus
@@ -23,7 +23,7 @@ With this Plugin you have the ability
 *   Add the shortcodes below to add pedigree, sibling, spouse and children lists.
 *   Create a unique Database driven Menu system to navigate your site
 
-Using the built in shortcodes you can
+<strong>Using the built in shortcodes you can</strong>
 
 *   Add 3 Generation Linkable Pedigree Chart
 *   Add Sibling List
@@ -41,7 +41,7 @@ Using the built in shortcodes you can
 *   Remove the Three Generation Restriction
 
 
-For all Support issues please use the FAQ's and forum located at the following address.
+<strong>For all Support issues please use the FAQ's and forum located at the following address.</strong>
 
 *   <a href="http://lyons-barton.com/wdl-pedigree-chart/#faq">Frequently Asked Questions</a>
 *   <a href="http://lyons-barton.com/forums/forum/3881-2/"> WDL Pedigree Forum</a>
