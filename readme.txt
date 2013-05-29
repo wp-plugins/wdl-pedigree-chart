@@ -29,7 +29,7 @@ Using the built in shortcodes you can
 *   Add Children List
 *   Create Family Menus
 
-With the Full Version you can:
+<strong>With the Full Version you can:</strong>
 
 *   Do all of the above, plus
 *   Change the Look and Feel to match your site
