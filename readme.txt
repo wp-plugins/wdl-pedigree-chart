@@ -4,7 +4,7 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id
 Tags: Family History, Genealogy, Pedigree Chart
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.2.1
+Stable tag: 1.3.2
 
 Display 3 Generations of your Family on one page with this fully administrable and functional pedigree chart.
 
@@ -33,16 +33,12 @@ Display 3 Generations of your Family on one page with this fully administrable p
 
 <strong>With the Full Version you can:</strong>
 
-* Edit Family Members
-* Edit Marriage Dates
-* Edit/Create Links
-* Delete Family Member Activated
-* Delete Marriages
-* Change the Look and Feel to match your site
-* Change the Font Properties (type, color, size, decoration)
-* Change the Table size and location
-* Change the Color Properties.
-* Remove the Three Generation Restriction
+*   Do all of the above, plus
+*   Change the Look and Feel to match your site
+*   Change the Font Properties (type, color, size, decoration)
+*   Change the Table size and location
+*   Change the Table and Font Color Properties.
+*   Remove the Three Generation Restriction
 
 
 <strong>For all Support issues please use the FAQ's and forum located at the following address.</strong>
