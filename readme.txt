@@ -33,12 +33,14 @@ Display 3 Generations of your Family on one page with this fully administrable p
 
 <strong>With the Full Version you can:</strong>
 
+
+*   Activate all Plugin Menus
 *   Do all of the above, plus
 *   Change the Look and Feel to match your site
 *   Change the Font Properties (type, color, size, decoration)
 *   Change the Table size and location
 *   Change the Table and Font Color Properties.
-*   Remove the Three Generation Restriction
+
 
 
 <strong>For all Support issues please use the FAQ's and forum located at the following address.</strong>
