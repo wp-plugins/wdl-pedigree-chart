@@ -10,13 +10,8 @@ Description: Adds a 3 Generation pedigree chart to your page
 Version: 1.3.2
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
-License: GPL2
+License: © Copyright 2013. All Rights Reserved
 */
-
-
-
-
-
 
 
 
@@ -43,6 +38,8 @@ function add_a_menu( $atts ) {
 
 	), $atts ) );
 ob_start();
+
+ 	include ('style_info.php');
 	
 ?>
     
@@ -50,7 +47,10 @@ ob_start();
 	<!-- The Page headings  -->
 
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-         
+   
+   
+
+    
 	<br />
 	<br />
 
@@ -66,19 +66,17 @@ ob_start();
 
 	<!-- Create the table to display the list  -->
 
-	<table class="menu_table">
+	<table class="shortcode_tables">
 
-	<th class="menu_heading">ID</th>
+	<th>First Name</th>
 
-	<th class="menu_heading">First Name</th>
+	<th>Family Name</th>
 
-	<th class="menu_heading">Family Name</th>
+	<th>Date Of Birth</th>
 
-	<th class="menu_heading">Date Of Birth</th>
+	<th>Date Of Death</th>
 
-	<th class="menu_heading">Date Of Death</th>
-
-	<th class="menu_heading">View Page</th>
+	<th>View Page</th>
 
 	<tr>
 
@@ -90,9 +88,9 @@ ob_start();
 	
 ?>
 
-	<tr class="menu_list">
+	<tr>
 
-	<td ><?php echo htmlspecialchars($result_menu->id);?></td>
+
 	
     <td ><?php echo htmlspecialchars($result_menu->first_name);?></td>
 	
@@ -159,17 +157,26 @@ function add_a_sibling( $atts ) {
 ob_start();
 	
 	
+		// Obtain the information for the styling
+
+
+ 	include ('style_info.php');
+
 ?>
     
 
 	<!-- The Page headings  -->
 
  	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-         
+
+
 	<br />
 	<br />
 
 <?php
+
+
+	
 
 	// Obtain the information for the list
 
@@ -197,19 +204,21 @@ ob_start();
 
 ?>	
 
-<div id = "shortcode_outer">
-<div id = "shortcode_inner">
 
 	<!-- Create the table to display the list  -->
-	<span class="table_heading">Siblings</span>
-
-	<table class="menu_table">
-
-	<th class="menu_heading">First Name</th>
+	
+    <div class="shortcode_outer">
+    <div class="sibling_inner">
     
-	<th class="menu_heading">Family Name</th>
+	<span class="table_heading">Sibling  </span>
+	<table class="shortcode_tables">
+	
+       
+        <th>First Name</th>
+    
+	<th>Family Name</th>
 
-	<th class="menu_heading">View Page</th>
+	<th>View Page</th>
 
 	<tr>
     
@@ -222,11 +231,12 @@ ob_start();
 
 ?>
 
-	<tr class="menu_list">
+	<tr>
 
 	<td ><?php echo htmlspecialchars($sibling->first_name);?></td>
 	
     <td><?php echo htmlspecialchars($sibling->family_name);?></td>
+
 
 	<td><a href="<?php bloginfo('url'); ?>?p=<? echo htmlspecialchars($sibling->post_id) ?>" target="blank">View Post</a></td>
 
@@ -241,8 +251,8 @@ ob_start();
 	
     </table>
     
-</div>
-</div>
+</div><!--End sibling_inner div -->
+</div><!--End shortcode_outer div -->
 
 <?php
 	
@@ -285,13 +295,17 @@ function add_children( $atts ) {
 
 	), $atts ) );
 ob_start();
+
+include ('style_info.php');
+
 	?>
     
 
 	<!-- The Page headings  -->
 
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-         
+ 
+  
 	<br />
 	<br />
 
@@ -314,15 +328,18 @@ ob_start();
 ?>
 
 	<!-- Create the table to display the list  -->
+    <div class="shortcode_outer">
+    <div class="children_inner">
 	<span class="table_heading">Children</span>
 
-	<table class="menu_table">
+	<table class="shortcode_tables">
 
-	<th class="menu_heading">First Name</th>
+
+	<th>First Name</th>
 	
-    <th class="menu_heading">Family Name</th>
+    <th>Family Name</th>
 
-	<th class="menu_heading">View Page</th>
+	<th>View Page</th>
 
 	<tr>
     
@@ -335,7 +352,7 @@ ob_start();
 
 ?>
 
-	<tr class="menu_list">
+	<tr>
 
 	<td ><?php echo htmlspecialchars($result->first_name);?></td>
 
@@ -354,7 +371,8 @@ ob_start();
 	</tr>
 
 	</table>
-
+</div><!--End children_inner div -->
+</div><!--End shortcode_outer div -->
 <?php
 	
 	$output = ob_get_clean();
@@ -395,13 +413,16 @@ function add_a_spouse( $atts ) {
 
 	), $atts ) );
 ob_start();
+
+include ('style_info.php');
 	?>
     
 
 	<!-- The Page headings  -->
 
  	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-
+ 
+	
 	<br />
 	<br />
 
@@ -429,21 +450,24 @@ ob_start();
 	$result = $wpdb->get_results( "SELECT $table_name.first_name, $table_name.family_name, $table_name.post_id,  $table_name2.date_of_marriage, $table_name2.person_id, $table_name2.spouse_id FROM $table_name JOIN $table_name2 ON $table_name.id=$table_name2.spouse_id WHERE $table_name2.person_id = $id" );
 }
 
+
 ?>
 
 
 	<!-- Create the table to display the list  -->
+    <div class="shortcode_outer">
+    <div class="spouse_inner">
 	<span class="table_heading">Spouse</span>
 	
-    <table class="menu_table">
+    <table class="shortcode_tables">
 
-	<th class="menu_heading">First Name</th>
+	<th>First Name</th>
     
-	<th class="menu_heading">Family Name</th>
+	<th>Family Name</th>
     
-	<th class="menu_heading">Date of  Marriage</th>
+	<th>Date of  Marriage</th>
 
-	<th class="menu_heading">Post ID</th>
+	<th>View Page</th>
 
 	<tr>
     
@@ -455,7 +479,7 @@ ob_start();
 
 ?>
 
-	<tr class="menu_list">
+	<tr>
 
 
 	<td ><?php echo htmlspecialchars($result->first_name);?></td>
@@ -477,7 +501,8 @@ ob_start();
 	</tr>
     
 	</table>
-
+</div><!--End spouse_inner div -->
+</div><!--End shortcode_outer div -->
 <?php
 
 
@@ -771,9 +796,6 @@ add_shortcode('add_pedigree', 'testpedigree');
 // ********* CREATE THE TWO TABLES WDL_PERSON AND WDL_MARRIAGES ********* 
 
 
-// ********* CREATE THE TWO TABLES WDL_PERSON AND WDL_MARRIAGES ********* 
-
-
 // Create the marriage table
 
 function create_a_marriage_table () {
@@ -833,21 +855,88 @@ register_activation_hook( __FILE__, 'create_a_pedigree_table' );
 
 
 
+// Create the css table
+
+
+function install_css_data() {
+ include ('tablename.php');
+ 
+$result = $wpdb->get_results( "SELECT * FROM $table_name3");
+ $id_exist = $wpdb->get_var( "SELECT insert_number FROM $table_name3 ");
+ $insert_number = 1;
+ if ($id_exist == 1) {
+	 
+	  return;
+	 
+	 } else {
+
+  $rows_affected = $wpdb->insert( $table_name3, array( 'insert_number' => $insert_number, 'table_heading_ft_fam' => $table_heading_ft_fam, 'table_heading_ft_size' => $table_heading_ft_size, 'table_heading_ft_wght' => $table_heading_ft_wght, 'table_heading_ft_col' => $table_heading_ft_col, 'table_heading_ft_style' => $table_heading_ft_style, 'tables_th_ft_fam' => $tables_th_ft_fam, 'tables_th_ft_size' => $tables_th_ft_size, 'tables_th_ft_wght' => $tables_th_ft_wght, 'tables_th_bkgrd' => $tables_th_bkgrd, 'tables_th_ft_col' => $tables_th_ft_col, 'tables_th_tx_trans' => $tables_th_tx_trans, 'tables_tr_ft_fam' => $tables_tr_ft_fam, 'tables_tr_ft_size' => $tables_tr_ft_size, 'tables_tr_ft_col' => $tables_tr_ft_col, 'tables_tr_bkgrd' => $tables_tr_bkgrd, 'zebra_col' => $zebra_col, 'link_ft_fam' => $link_ft_fam, 'link_ft_size' => $link_ft_size, 'link_ft_style' => $link_ft_style, 'link_tx_dec' => $link_tx_dec, 'link_tx_col' => $link_tx_col, 'link_hov_col' => $link_hov_col, 'sibling_tb_width' => $sibling_tb_width, 'sibling_tb_marg_left' => $sibling_tb_marg_left, 'sibling_tb_marg_right' => $sibling_tb_marg_right, 'spouse_tb_width' => $spouse_tb_width, 'spouse_tb_marg_left' => $spouse_tb_marg_left, 'spouse_tb_marg_right' => $spouse_tb_marg_right, 'children_tb_width' => $children_tb_width, 'children_tb_marg_left' => $children_tb_marg_left, 'children_tb_marg_right' => $children_tb_marg_right) );
+	 }
+
+
+
+  }
 
 
 
 
 
+function create_css_table() {
+ 
+  include ('tablename.php');
+   
+      
+   $sql = "CREATE TABLE $table_name3 (
+  id mediumint(9) NOT NULL AUTO_INCREMENT,
+
+	table_heading_ft_fam varchar (40) NOT NULL,
+	table_heading_ft_size varchar (5) NOT NULL,
+	table_heading_ft_wght varchar (12) NOT NULL,
+	table_heading_ft_col varchar (7) NOT NULL,
+	table_heading_ft_style varchar (11) NOT NULL,
+	tables_th_ft_fam varchar (40) NOT NULL,
+	tables_th_ft_size varchar (4) NOT NULL,
+	tables_th_ft_wght varchar (12) NOT NULL,
+
+	tables_th_ft_col varchar (7) NOT NULL,
+	tables_th_tx_trans varchar (10) NOT NULL,
+	tables_th_bkgrd varchar (7) NOT NULL,
+	tables_tr_ft_fam varchar (40) NOT NULL,
+	tables_tr_ft_size varchar (4) NOT NULL,
+	tables_tr_ft_col varchar (7) NOT NULL,
+	tables_tr_bkgrd varchar (7) NOT NULL,
+	zebra_col varchar (7) NOT NULL,
+	link_ft_fam varchar (40) NOT NULL,
+	link_ft_size varchar (4) NOT NULL,
+	link_ft_style varchar (11) NOT NULL,
+	link_tx_dec varchar (15) NOT NULL,
+	link_tx_col varchar (7) NOT NULL,
+	link_hov_col varchar (7) NOT NULL,
+	sibling_tb_width varchar (7) NOT NULL,
+	sibling_tb_marg_left varchar (12) NOT NULL,
+	sibling_tb_marg_right varchar (12) NOT NULL,
+	spouse_tb_width varchar (7) NOT NULL,
+	spouse_tb_marg_left varchar (12) NOT NULL,
+	spouse_tb_marg_right varchar (12) NOT NULL,
+	children_tb_width varchar (7) NOT NULL,
+	children_tb_marg_left varchar (12) NOT NULL,
+	children_tb_marg_right varchar (12) NOT NULL,
+	insert_number varchar (3) NOT NULL,
+
+  UNIQUE KEY id (id)
+    );";
+
+   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+   dbDelta( $sql );
+ 
 
 
+ 
 
+}
 
-
-
-
-
-
-
+register_activation_hook( __FILE__, 'create_css_table' );
+register_activation_hook( __FILE__, 'install_css_data' );
 
 
 
@@ -947,17 +1036,10 @@ function create_main_menu () {
     <?php screen_icon();?>
     <h2>WDL Family History</h2>
     <p> Thankyou for choosing WDL Family History</p>
-    <br />
-    <br />
-    <p>This is a fully Functional Plugin with the only restriction beng the number of family members able to be entered in the database (3 Generations) and the availability of the Look and Feel Menu Options</p> 
-    <p>As a Family Historian myself , I was disappointed to find no plugins for WordPress that offered what I needed. However, I was also lucky enough to have enough knowledge to produce a plugin that fulfilled these needs. My website uses this plugin so feel free to visit the different pages to see how it works Live.</p>
 
-<p>Although it has been a “labour of love” it did take quite a bit of time to produce and I am constantly upgrading, as I come across things that need to be improved or I think of ideas that can enhance it.</p>
-
-<p>This is the reason I ask for a small fee to use the full version </p>
     <br />
     <br />
-    <p>If you like to view more information or to view the Frequently asked Questions</p> 
+    <p> If you like view more information or to view the Frequently asked Questions</p> 
     <br />
 	<a href="http://lyons-barton.com/wdl-pedigree-chart/"> More Information</a>
 
@@ -971,9 +1053,6 @@ function create_main_menu () {
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
 <?php
-
-
-
 }
 
 
@@ -1001,15 +1080,8 @@ function create_main_menu () {
 
 
 
-function start_new_family_page () {
-	
-include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
 
-		
+function start_new_family_page () {
 ?>
 <div class="wrap">
 <h2>WDL Pedigree Chart - Start A New Family</h2>
@@ -1018,7 +1090,8 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 <br />
 <br />
  <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-
+	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'shortcode_style.css', __FILE__ );?>">        
+	
 <div id="form">
   <fieldset>
 
@@ -1194,48 +1267,10 @@ $wpdb->insert($table_name,array('first_name'=>$first_name,'family_name'=>$family
 	
 include ('auto_new_page.php');
 $wpdb->insert($table_name,array('person_id'=>$id));
-
-
-} else {
-?>	
-	<div class=""wrap">
-    <?php screen_icon();?>
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <br />
-    <br />
-    <br />
-    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
-    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
-
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
-    
-    <ul>
-		<li>- Change the Look and Feel to match your site</li>
-		<li>- Change the Font Properties (type, color, size, decoration)</li>
-		<li>- Change the Table size and location</li>
-		<li>- Change the Color Properties.</li>
-		<li>- Remove the Three Generation Restriction</li>
-	</ul>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
-
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
-<?	
 }
-}
+
+
+
 
 
 
@@ -1264,12 +1299,6 @@ $wpdb->insert($table_name,array('person_id'=>$id));
 
 
 function add_new_family_member () {
-	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
 ?>
 <div class="wrap">
 
@@ -1598,45 +1627,6 @@ else if ($family_type == 'Sibling')
  include ('auto_new_page.php');	
 
 
-} else {
-?>	
-	<div class=""wrap">
-    <?php screen_icon();?>
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <br />
-    <br />
-    <br />
-    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
-    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
-
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
-    
-    <ul>
-		<li>- Change the Look and Feel to match your site</li>
-		<li>- Change the Font Properties (type, color, size, decoration)</li>
-		<li>- Change the Table size and location</li>
-		<li>- Change the Color Properties.</li>
-		<li>- Remove the Three Generation Restriction</li>
-	</ul>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
-
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
-<?	
-}
 }
 
 
@@ -1666,12 +1656,6 @@ else if ($family_type == 'Sibling')
 
 
 function add_spouse () {
-	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
 ?>
 <div class="wrap">
 
@@ -1872,43 +1856,6 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-spouse");
 
-} else {
-?>	
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <br />
-    <br />
-    <br />
-    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
-    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
-
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
-    
-    <ul>
-		<li>- Change the Look and Feel to match your site</li>
-		<li>- Change the Font Properties (type, color, size, decoration)</li>
-		<li>- Change the Table size and location</li>
-		<li>- Change the Color Properties.</li>
-		<li>- Remove the Three Generation Restriction</li>
-	</ul>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
-
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
-<?	
-}
 }
 
 
@@ -1936,117 +1883,13 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 
 function connect_links () {
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
-?>	
 
 
-<h2>WDL Pedigree Chart - Fix broken or Add New Family Links</h2>
-    <p>From this page you will be able to Fix broken or Add New Family Links</p>
-    <p>Links break for all sorts of reasons. Use this page to re-established these broken links </p>
-    <p>This page also changes the family ID to the fathers Family ID when the parent chosen is the the father of the child.</p>
-<br />
-<br />
-
-
-
-<?php
-
-include ('tablename.php');	
-
-$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
-	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
-	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
-	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	$options2.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	}
 ?>
-    <form action="" method="post" name="new_link">
 
-	<label  align="left" for="person_id">Select First Person. *</label>
-	
-    <p></p>
-	
-    <select name="person_id" id="person_id" style="width: 400px">
-  	
-    <option><?=$options?> </option>
-	
-    </select>
-    <br />
-    <br />
-    Link as the son or daughter of
-    <br />
-    <br />
-    <label  align="left" for="parent_id">Parent</label>  
-    <p></p>
-    <select name="parent_id" id="parent_id" style="width: 400px">
-  	
-    <option><?=$options2?> </option>
-	
-    </select>
-
-	  <p></p>
-
-
-       <input type="submit" name="submit" id="submit" value="Submit" />
-    
-    </form>
-
-
-<?php
-
-//Get values from Form
-
-	$person_id = sanitize_text_field( $_POST['person_id'] ); 
-	$person_id = check_input( $_POST['person_id']);
-
-	$parent_id = sanitize_text_field( $_POST['parent_id'] ); 
-	$parent_id = check_input( $_POST['parent_id']);
-
-		
-	$parent = $wpdb->get_results( "SELECT * FROM $table_name WHERE id = '$parent_id'" );
-	
-	$parent_sex = $wpdb->get_var ("SELECT sex from $table_name WHERE id = '$parent_id'");
-
-	if ($parent_sex == 'Male'){
-	$family_id = $wpdb->get_var ("SELECT family_id from $table_name WHERE id = '$parent_id'");
-		
-		$wpdb->update($table_name,
-	array('father_id'=>check_input($parent_id), 'family_id'=>check_input($family_id)),
-	array('id'=>check_input($person_id)));
-	
-
-	
-	} else {
-		
-		$wpdb->update($table_name,
-	array('mother_id'=>check_input($parent_id)),
-	array('id'=>check_input($person_id)));
-		
-	}
-} else {
-?>	
-	<div class=""wrap">
+<div class="wrap">
     <?php screen_icon();?>
-	<div class=""wrap">
+	<div class="wrap">
     <?php screen_icon();?>
     <br />
     <br />
@@ -2056,13 +1899,19 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    <p> The Full version offers everything you see here but with:</p>
     
     <ul>
-		<li>- Change the Look and Feel to match your site</li>
+		
+        <li>- Edit Family Member Activated</li>
+        <li>- Edit Marriage Date Activated</li>
+        <li>- Edit/Create Links Activated</li>
+        <li>- Delete Family Member Activated</li>
+        <li>- Delete Marriage Activated</li>
+        <li>- Change the Look and Feel to match your site</li>
 		<li>- Change the Font Properties (type, color, size, decoration)</li>
 		<li>- Change the Table size and location</li>
 		<li>- Change the Color Properties.</li>
@@ -2079,8 +1928,7 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?	
-}
+<?php
 }
 //End the Admin Sub Menu Fix Broken ar New Links Page
 
@@ -2112,11 +1960,6 @@ $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $tab
 
 
 function view_family_member () {
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-
 	
 ?>
 
@@ -2128,7 +1971,8 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>&nbsp;</p>
 
  	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-
+<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'shortcode_style.css', __FILE__ );?>">        
+	
 <?php
 
 	include ('tablename.php');
@@ -2188,11 +2032,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 <?php 
 
-?>	
-
-<?	
 }
-
 
 //End the Admin Sub Menu View Family Member Page
 
@@ -2230,12 +2070,6 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 function view_a_spouse () {
 	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-
-
-	
 ?>
 
 <div class="wrap">
@@ -2246,7 +2080,8 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
     <p>&nbsp;</p>
 
  <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-
+<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'shortcode_style.css', __FILE__ );?>">        
+	
 <?php
 
 	include ('tablename.php'); 
@@ -2341,12 +2176,7 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 <?php 
 
-
-?>	
-
-<?	
 }
-
 
 
 
@@ -2386,249 +2216,41 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
  
 function edit_person() {
-	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
-		
-
-	include ('tablename.php');
-	$p_id = NULL;
-
-	$sql="SELECT * FROM $table_name ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
 
 
-
-    $p_id=sanitize_text_field( $row["id"]); 
-	$p_id=check_input($p_id);
-	
-	
-    $p_first_name=sanitize_text_field( $row["first_name"]); 
-	$p_first_name=check_input($p_first_name); 
-	
-    $p_family_name=sanitize_text_field( $row["family_name"]); 
-	$p_family_name=check_input($p_family_name); 
-	
-    $p_date_of_birth=sanitize_text_field( $row["date_of_birth"]);
-	$p_date_of_birth=check_input($p_date_of_birth);
-	
-    $p_options.="<OPTION VALUE='".$p_id. "'>".$p_id."   ---  ".$p_first_name ." ".$p_family_name."   ---  ".$p_date_of_birth; 
-	}
-
-?> 
-
-    <h2>WDL Pedigree Chart - Edit Family Member</h2>
-    <p>From this page you will be able to Edit Family Members</p>
-    
-    <p>&nbsp;</p>
-
-	<br />
-	<br />
-
-
-<div id="form">
-
-	<form action="" method="post">
-
-	<label  align="left" for="p_id"><strong>Step 1:</strong> Select the Person you wish to make changes to*</label>
-
-	<br />
-	<br />
-    
-	<select name="p_id" onchange='this.form.submit()'>
-  	
-    <option><?=$p_options?> </option>
-	
-    </select>
-
-	<noscript><input type="submit" value="choose"></noscript>
-
-	</form>
-
-	<br />
- 	<br />
-    
-</div>
-
-<?php
-
-	$p_id = sanitize_text_field( $_POST[p_id]);
-	$p_id = check_input( $p_id,"You Need to Select the Person who You are Making Changes To");
-
-
-	$result = $wpdb->get_results( "SELECT first_name, family_name, date_of_birth, date_of_death, id  FROM $table_name"); 
-
-
-
-	$first_name = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $p_id" );
-	$first_name =sanitize_text_field($first_name);
-	$first_name =check_input($first_name);
-
-	$family_name = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $p_id" );
-	$family_name =sanitize_text_field($family_name);
-	$family_name =check_input($family_name);
-
-
-	$date_of_birth = $wpdb->get_var( "SELECT date_of_birth FROM $table_name WHERE id = $p_id" );
-	$date_of_birth =sanitize_text_field($date_of_birth);
-	$date_of_birth =check_input($date_of_birth);
-
-	$date_of_death = $wpdb->get_var( "SELECT date_of_death FROM $table_name WHERE id = $p_id" );
-	$date_of_death =sanitize_text_field($date_of_death);
-	$date_of_death =check_input($date_of_death);
-
-
-
-	$sex = $wpdb->get_var( "SELECT sex FROM $table_name WHERE id = $p_id" );
-	$sex =sanitize_text_field($sex);
-	$sex =check_input($sex);
 
 ?>
 
-<div id="form">
-
-  	<fieldset>
-
-  	<legend class="legend"><strong>Step 2:</strong> Make the Required Changes.</legend>
-
-	<br />
-
-	<div id="inner_form">
-  	
-    <form action="" method="post" name="edit_person" >
-
-   	<input name="p_id" id="p_id" type="hidden" value="<? echo htmlspecialchars($p_id)?>" />
-
-    <p>
-
-    <label for="first_name"><strong>First and Middle Names</strong></label><br />
-
-    <input name="first_name" default=""   type="text" id="first_name" value="<? echo htmlspecialchars($first_name)?>"  " maxlength="50" />
-
-	</p>
-
-	<br />
-
-    <p> 
-    
-    <label for="family_name"><strong>Family Name</strong></label><br />
-
-    <input name="family_name" default="" type="text" id="family_name" value="<? echo htmlspecialchars($family_name)?>"  maxlength="50" />
-
-	</p>
-
-	<br />
-    
-    <p>
-
-    <label for="date_of_birth"><strong>Date of Birth</strong></label><br />
-
-    <input type="text" default=""  name="date_of_birth" id="date_of_birth" value="<? echo htmlspecialchars($date_of_birth)?>" maxlength="20"/>
-
-	</p>
-
-	<br />    
-    
-    <p>
-
-    <label for="date_of_death"><strong>Date Of Death</strong> </label><br />
-      
-    <input type="text" default="" name="date_of_death" id="date_of_death" value="<? echo htmlspecialchars($date_of_death)?>" maxlength="20" />
-    
-    </p>
-
-    <br />
-   
-    <p>  
-    
-    <label for="date_of_death"><strong>Sex</strong></label>
-    
-    <br />
-        
-    <input type="text" default=""  name="sex" id="sex" value="<? echo htmlspecialchars($sex)?>" maxlength="6" />
-      
-  	</p>
-
-	<br />
-
-    <p>
-
-    <input type="submit" name="submit" id="submit" value="Submit" />
-
-    </p>
-
-  	</form>
-
-  	</div>  
-
-  	</fieldset>
-
-
-</div>
-
-<?php
-
-	if(isset($_POST['submit'])) {
-
-
-
-	$first_name = sanitize_text_field($_POST['first_name']);
-	$first_name = check_input( $first_name);
-
-	$family_name = sanitize_text_field($_POST['family_name']);
-	$family_name = check_input( $family_name);
-
-	$date_of_birth = sanitize_text_field($_POST['date_of_birth']);
-	$date_of_birth = check_input( $date_of_birth);
-
-	$date_of_death = sanitize_text_field($_POST['date_of_death']);
-	$date_of_death = check_input( $date_of_death);
-
-	$sex = sanitize_text_field($_POST['sex']);
-	$sex = check_input( $sex);
-
-	$p_id = sanitize_text_field($_POST['p_id']);
-	$p_id = check_input( $p_id);
-
-	include ('tablename.php');
-
-
-	$wpdb->update($table_name,
-	array('first_name'=>$first_name,'family_name'=>$family_name,'date_of_birth'=>$date_of_birth,'date_of_death'=>$date_of_death,'sex'=>$sex
-	),
-	array('id'=>$p_id));
-	
-	$ch_post_id = $wpdb->get_var( "SELECT post_id FROM $table_name WHERE id =$p_id" );	
-	$table_name = $wpdb->prefix . "posts";
-
-	$wpdb->update('wp_posts',
-	array('post_title'=>$first_name." ".$family_name
-	),
-	array('id'=>$ch_post_id));
-	
-	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-family-member");
-}
-
-} else {
-?>	
-	<div class=""wrap">
+<div class="wrap">
     <?php screen_icon();?>
-    <h2>WDL Family History</h2>
-    <p> Thankyou for Trying Out the WDL Genealogy and Family History Pedigree Chart</p>
+	<div class="wrap">
+    <?php screen_icon();?>
+    <br />
+    <br />
+    <br />
+    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
+    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons</p>
+    <p> The Full version offers everything you see here but with:</p>
+    
+    <ul>
+		
+        <li>- Edit Family Member Activated</li>
+        <li>- Edit Marriage Date Activated</li>
+        <li>- Edit/Create Links Activated</li>
+        <li>- Delete Family Member Activated</li>
+        <li>- Delete Marriage Activated</li>
+        <li>- Change the Look and Feel to match your site</li>
+		<li>- Change the Font Properties (type, color, size, decoration)</li>
+		<li>- Change the Table size and location</li>
+		<li>- Change the Color Properties.</li>
+		<li>- Remove the Three Generation Restriction</li>
+	</ul>
     <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
 	<br />
@@ -2640,8 +2262,8 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?	
-}
+<?php
+
 }
 
 
@@ -2675,243 +2297,13 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 function edit_marriage_date () {
 	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
-	
-?>	
-
-	 <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-
-<?php
-	ob_start();
-	include ('tablename.php');
-
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-
-
-
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
-	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
-	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
-	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-	
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	}
-
-?> 
-    <h2>WDL Pedigree Chart - Add Spouse</h2>
-    
-    <p>From this page you will be able to add a New Family Members to your family trees</p>
-    <p>&nbsp;</p>
-
-	<br />
-	<br />
-
-<div id="form">
-	
-    <form action="" method="post" name="new_person">
-
-	<label  align="left" for="person_id">Select Spouse 1. *</label>
-	
-    <p></p>
-	
-    <select name="person_id" id="person_id" style="width: 400px">
-  	
-    <option><?=$options?> </option>
-	
-    </select>
-
-    <br />
-    <br  />
-    
-<?php
-
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-	unset ($spouse_id);
-
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
-	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
-	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
-	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-    $options_f.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	}
-	
-?>
-
-	<label  align="left" for="spouse_id">Select Spouse 2. *</label>
-	
-    <p></p>
-	
-    <select name="spouse_id"  id="spouse_id" style="width: 400px">
-  	
-    <option><?=$options_f?> </option>
-	
-    </select>
-     
-    <p>
-
-    <input type="submit" name="choose" id="choose" value="Choose Marriage Partners" />
-
-    </p>
-
-	</form>
-    
-    <br />
-    <br />
-    <br />
-    
-    <hr width=85% align="center" />
-    
-    <br />
-    <br />
-    <br />    
-
-<?php
-
-	include ('tablename.php');
-    $person_id = sanitize_text_field( $_POST["person_id"]); 
-	$person_id=check_input($person_id,"You Need to Select Spouse 1"); 
-
-	
-    $spouse_id=sanitize_text_field( $_POST["spouse_id"]); 
-	$spouse_id=check_input($spouse_id,"You Need to Select Spouse 2"); 
-	
-
-	
-	$result = $wpdb->get_results( "SELECT first_name, family_name,id  FROM $table_name"); 
-
-
-
-	$first_name = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $person_id" );
-	$first_name =sanitize_text_field($first_name);
-	$first_name =check_input($first_name);
-
-	$family_name = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $person_id" );
-	$family_name  =sanitize_text_field($family_name );
-	$family_name  =check_input($family_name );
-
-	$first_name_sp = $wpdb->get_var( "SELECT first_name FROM $table_name WHERE id = $spouse_id" );
-	$first_name_sp =sanitize_text_field($first_name_sp);
-	$first_name_sp =check_input($first_name_sp);
-
-	$family_name_sp = $wpdb->get_var( "SELECT family_name FROM $table_name WHERE id = $spouse_id" );
-	$family_name_sp =sanitize_text_field($family_name_sp );
-	$family_name_sp  =check_input($family_name_sp );
-
-	$result2 = $wpdb->get_results( "SELECT date_of_marriage, person_id, spouse_id  FROM $table_name2"); 
-
-	$date_of_marriage = $wpdb->get_var( "SELECT date_of_marriage FROM $table_name2 WHERE person_id = $person_id AND spouse_id = $spouse_id" );
-	$date_of_marriage =sanitize_text_field($date_of_marriage);
-	$date_of_marriage =check_input($date_of_marriage);
-
-
-	echo $first_name." ".$family_name;
-	unset ($first_name);
-	unset ($family_name);
-
-?>
-
-	<br />
-    <br />
-
-MARRIED
-
-	<br />
-    <br />
-
-<?php
-
-	echo $first_name_sp." ".$family_name_sp ;
-	unset ($first_name_sp);
-	unset ($family_name_sp);
 
 
 ?>
 
-	<br />
-    <br />
-    
-on the
-
-	<br />
-    <br />
-
-	<form action="" method="post" >
-    
-    <p>
-	
-    <input type="text" default="" name="date_of_m" id="date_of_m" value="<? echo htmlspecialchars($date_of_marriage)?>" maxlength="20" />
-    
-    </p>
-
-	<input name="person_id" id="person_id" type="hidden" value="<? echo htmlspecialchars($person_id)?>" />
-   	
-    <input name="spouse_id" id="spouse_id" type="hidden" value="<? echo htmlspecialchars($spouse_id)?>" />
-
-    <input type="submit" name="submit" id="submit" value="Submit" />
- 
-    </form>
-    
-<?php
-
-	if(isset($_POST['submit'])) {
-
-	$date_of_marriage = check_input( $date_of_m);
-
-
-	$date_of_m = sanitize_text_field($_POST['date_of_m']);
-	$date_of_m = check_input( $date_of_m);
-	$date_of_marriage = $date_of_m;
-
-	$person_id = sanitize_text_field($_POST['person_id']);
-	$person_id = check_input( $person_id);
-
-	$spouse_id = sanitize_text_field($_POST['spouse_id']);
-	$spouse_id = check_input( $spouse_id );
-
-	include ('tablename.php');
-	
-	$wpdb->update($table_name2,
-	array('date_of_marriage'=>$date_of_m),
-	array('person_id'=>$person_id,
-	'spouse_id'=>$spouse_id));
-	
-	header("Location: ".bloginfo('url')."/wp-admin/admin.php?page=add-submenu-view-spouse");
-
-}
-
-} else {
-?>	
-	<div class=""wrap">
+<div class="wrap">
     <?php screen_icon();?>
-	<div class=""wrap">
+	<div class="wrap">
     <?php screen_icon();?>
     <br />
     <br />
@@ -2921,13 +2313,19 @@ on the
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    <p> The Full version offers everything you see here but with:</p>
     
     <ul>
-		<li>- Change the Look and Feel to match your site</li>
+		
+        <li>- Edit Family Member Activated</li>
+        <li>- Edit Marriage Date Activated</li>
+        <li>- Edit/Create Links Activated</li>
+        <li>- Delete Family Member Activated</li>
+        <li>- Delete Marriage Activated</li>
+        <li>- Change the Look and Feel to match your site</li>
 		<li>- Change the Font Properties (type, color, size, decoration)</li>
 		<li>- Change the Table size and location</li>
 		<li>- Change the Color Properties.</li>
@@ -2944,8 +2342,8 @@ on the
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?	
-}
+<?php
+
 }
 
 
@@ -2987,93 +2385,13 @@ on the
 
  
 function delete_person() {
-	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
-		
-
-	include ('tablename.php');
-	$p_id = NULL;
-
-	$sql="SELECT * FROM $table_name ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-
-    $p_id=sanitize_text_field( $row["id"]); 
-	$p_id=check_input($p_id);
-	
-	
-    $p_first_name=sanitize_text_field( $row["first_name"]); 
-	$p_first_name=check_input($p_first_name); 
-	
-    $p_family_name=sanitize_text_field( $row["family_name"]); 
-	$p_family_name=check_input($p_family_name); 
-	
-    $p_date_of_birth=sanitize_text_field( $row["date_of_birth"]);
-	$p_date_of_birth=check_input($p_date_of_birth);
-	
-    $p_options.="<OPTION VALUE='".$p_id. "'>".$p_id."   ---  ".$p_first_name ." ".$p_family_name."   ---  ".$p_date_of_birth; 
-	}
-
-?> 
-
-    <h2>WDL Pedigree Chart - Delete Family Member</h2>
-    <p>From this page you will be able to Edit Family Members</p>
-    
-    <p>&nbsp;</p>
-
-	<br />
-	<br />
-
-	<div id="form">
-  
-	<form action="" method="post">
-
-	<label  align="left" for="p_id"><strong>Step 1:</strong> Select the Person you wish to Delete*</label>
-
-	<br />
-    <br />
-    
-	<select name="p_id">
-  	
-    <option><?=$p_options?> </option>
-	
-    </select>
-    
-    <br />
-    <br />
-
-	<input type="submit" name="submit" id="submit" value="Delete Person" />
-
-	</form>
-
-	<br />
-	<br />
 
 
-<?php
+?>
 
-	$p_id = sanitize_text_field( $_POST[p_id]);
-	$p_id = check_input( $p_id,"You Need to Select the Person who You Wish To Delete");
-
-	$post_id = $wpdb->get_var( "SELECT post_id FROM $table_name WHERE id = $p_id" );
-
-	$id = $p_id;
-
-	$wpdb->query( "DELETE FROM $table_name WHERE id = $p_id" );
-
-	wp_delete_post($post_id);
-} else {
-?>	
-	<div class=""wrap">
+<div class="wrap">
     <?php screen_icon();?>
-	<div class=""wrap">
+	<div class="wrap">
     <?php screen_icon();?>
     <br />
     <br />
@@ -3083,13 +2401,19 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    <p> The Full version offers everything you see here but with:</p>
     
     <ul>
-		<li>- Change the Look and Feel to match your site</li>
+		
+        <li>- Edit Family Member Activated</li>
+        <li>- Edit Marriage Date Activated</li>
+        <li>- Edit/Create Links Activated</li>
+        <li>- Delete Family Member Activated</li>
+        <li>- Delete Marriage Activated</li>
+        <li>- Change the Look and Feel to match your site</li>
 		<li>- Change the Font Properties (type, color, size, decoration)</li>
 		<li>- Change the Table size and location</li>
 		<li>- Change the Color Properties.</li>
@@ -3106,8 +2430,8 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?	
-}
+<?php
+
 }
 
 
@@ -3140,149 +2464,13 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 
 function delete_marriage_data () {
-	
-	include ('tablename.php'); 
-$row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
-	$row_number = $wpdb->get_var( "SELECT count(*) from $table_name" );
-	
-	if ($row_number <= 07) {
 
-?>	
-
-	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
-  
-<?php
-
-	ob_start();
-	include ('tablename.php');
-
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-
-
-
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
-	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
-	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
-	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-	
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	}
-
-?> 
-    
-    <h2>WDL Pedigree Chart - Add Spouse</h2>
-    <p>From this page you will be able to add a New Family Members to your family trees</p>
-    
-    <p>&nbsp;</p>
-
-	<br />
-	<br />
-
-<div id="form">
-	
-    <form action="" method="post" name="new_person">
-
-	<label  align="left" for="person_id">Select Spouse 1. *</label>
-	
-    <p></p>
-    
-	<select name="person_id" id="person_id" style="width: 400px">
-  	
-    <option><?=$options?> </option>
-	
-    </select>
-
-    <br />
-    <br  />
-    
-<?php
-
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
-	$options=""; 
-
-	while ($row=mysql_fetch_array($result)) { 
-	unset ($spouse_id);
-
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
-	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
-	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
-	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-    $options_f.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
-	}
 
 ?>
 
-	<label  align="left" for="spouse_id">Select Spouse 2. *</label>
-	
-    <p></p>
-	
-    <select name="spouse_id"  id="spouse_id" style="width: 400px">
-  	
-    <option><?=$options_f?> </option>
-	
-    </select>
-    
-    <p>
-
-    <input type="submit" name="submit" id="submit" value="Delete Marriage" />
-
-    </p>
-
-	</form>
-    
-    <br />
-    <br />
-    <br />
-    
-    <hr width=85% align="center" />
-    
-    <br />
-    <br />
-    <br />  
-      
-<?php
-
-	include ('tablename.php');
-    $person_id = sanitize_text_field( $_POST["person_id"]); 
-	$person_id=check_input($person_id,"You Need to Select Spouse 1"); 
-
-	
-    $spouse_id=sanitize_text_field( $_POST["spouse_id"]); 
-	$spouse_id=check_input($spouse_id,"You Need to Select Spouse 2"); 
-	
-
-	
-
-
-	$wpdb->query( "DELETE FROM $table_name2 WHERE person_id = $person_id AND spouse_id = $spouse_id" );
-
-
-} else {
-?>	
-	<div class=""wrap">
+<div class="wrap">
     <?php screen_icon();?>
-	<div class=""wrap">
+	<div class="wrap">
     <?php screen_icon();?>
     <br />
     <br />
@@ -3292,13 +2480,19 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
     <br />
     <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+    <p> The Full version offers everything you see here but with:</p>
     
     <ul>
-		<li>- Change the Look and Feel to match your site</li>
+		
+        <li>- Edit Family Member Activated</li>
+        <li>- Edit Marriage Date Activated</li>
+        <li>- Edit/Create Links Activated</li>
+        <li>- Delete Family Member Activated</li>
+        <li>- Delete Marriage Activated</li>
+        <li>- Change the Look and Feel to match your site</li>
 		<li>- Change the Font Properties (type, color, size, decoration)</li>
 		<li>- Change the Table size and location</li>
 		<li>- Change the Color Properties.</li>
@@ -3315,13 +2509,16 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
  
     <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
 </div>
-<?	
+<?php
+
 }
-}
+
 
 
 
 // End Delete Marriage Page
+
+
 
 
 
@@ -3336,50 +2533,429 @@ $row_number = $wpdb->get_results( "SELECT count(*) from $table_name" );
 
 
 
+
+
+// Add Change Look Menu
+
 function change_look () {
+	
+	
 
 ?>
-<!-- Create the main menu page -->
-<div class=""wrap">
-    <?php screen_icon();?>
-	<div class=""wrap">
-    <?php screen_icon();?>
-    <br />
-    <br />
-    <br />
-    <h2>WDL Family History and Genealogy Pedigree Chart</h2>
-    <p> Thankyou for Trying out the WDL Genealogy and Family History Pedigree Chart</p>
-
-    <br />
-    <br />
-    <p>You have reached the maximum number of persons allowed in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
-    <br />
-	
-    <p> The Full version offers everything you see here but with unlimited number of persons and the ability to change the colors and fonts of the shortcode tables to match the color scheme of your site.</p>
+<div class="wrap">
+<h2>WDL Pedigree Chart - Change the Look and Feel</h2>
+    <p>From this page you will be able to change the look and feel of your site</p><br />
     
-    <ul>
-		<li>- Change the Look and Feel to match your site</li>
-		<li>- Change the Font Properties (type, color, size, decoration)</li>
-		<li>- Change the Table size and location</li>
-		<li>- Change the Color Properties.</li>
-		<li>- Remove the Three Generation Restriction</li>
-	</ul>
-    <a href="http://www.lyons-barton.com/wdl-pedigree-chart/" target="blank" alt="Full Version of WDL Pedigree Chart" />See What the Full Version of WDl Pedigree Chart has to offer</a>
 
-	<br />
-    <br />
-    <hr>
-    <br />
-    <br />
-    <p class="subheading">Make Suggestions for improvements</p>
- 
-    <a href="mailto:wdlyons@lyons-barton.com?subject=A suggestion for your Pedigree Plugin">Make a Suggestion</a>
-</div>
+ <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>">
+<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'shortcode_style.css', __FILE__ );?>">    
+
+<?php
+include ('style_info.php');
+
+
+
+?>    
+	
+<div id="form">
+            <div id="example">
+            <p><strong>Important Notes: </strong>
+            <br />
+            <hr />
+
+            <br />
+           <strong> COLORS </strong>
+            <br />
+            Use the <a href="http://www.w3schools.com/tags/ref_colorpicker.asp" target="blank">Hexadecimal Format</a> 
+            <br />
+            For example: for Black use   000000 , for White use  ffffff etc
+            <br />
+            <br />
+            <strong>No Leading # </strong>
+            <br />
+            <hr />
+            <br />
+            <strong>WIDTHS AND MARGINS</strong>
+            <br />
+            Use a % for both. For example: Table Width   50% , Margin Left   10% ,Margin Right  40%
+            <br />
+            <br />
+            <hr />
+            <br />
+            <strong>FONT SIZE</strong>
+            <br />
+            Use numbers. For example: 12 or 12.5
+             <br />
+             <br />
+            <strong>No px at the end. </strong>
+            </p>
+            <hr /> 
+           <br />
+            <strong>FONT WEIGHT</strong>
+            <br />
+            <br />
+            bold, normal, inherit
+            <br />
+          
+            <br />
+             <strong>FONT STYLE</strong>
+            <br />
+            <br />
+            normal, italic, oblique, inherit
+            <br />
+            
+            <br />
+               <strong>TEXT TRANSFORM</strong>
+            <br />
+            <br />
+            none, capitalize, uppercase, lowercase, inherit
+            <br />
+                        <br />
+              <strong>TEXT DECORATION</strong>
+            <br />
+            <br />
+            none, underline, overline, line-through, blink, inherit
+            <br />
+            <br />
+            <hr />
+            <br />
+            </div>   
+  			<p><strong>Please Note:</strong> Depending on your Setup you may need to hit ctrl F5 to view the changes</p>
+
+<form action="" method="post" id="change_css">
+   			
+   	<fieldset id="look">
+   			<p class="form_heading">Table Name</p>
+          
+     		<p class="form_look">	
+          	Font
+			
+      		<input name="table_heading_ft_fam" type="text" id="table_heading_ft_fam" size="25" maxlength="40" value="<? echo htmlspecialchars($table_heading_ft_fam)?>"/>
+			</p>
+      		
+            <p class="form_look">	
+            Font Size
+			
+      		<input name="table_heading_ft_size" type="text" id="table_heading_ft_size" size="25" maxlength="5" value="<? echo htmlspecialchars($table_heading_ft_size)?>" />
+			</p>
+                  
+            <p class="form_look">	
+            Font Weight
+			
+      		<input name="table_heading_ft_wght" type="text" id="table_heading_ft_wght" size="25" maxlength="12" value="<? echo htmlspecialchars($table_heading_ft_wght)?>"/>
+			</p>
+            
+            <p class="form_look">	
+            Font Color
+		
+      		<input name="table_heading_ft_col" type="text" id="table_heading_ft_col" size="25" maxlength="7" value="<? echo htmlspecialchars($table_heading_ft_col)?>"/>
+			</p>
+            
+                        <p class="form_look">	
+            Font Style
+		
+      		<input name="table_heading_ft_style" type="text" id="table_heading_ft_style" size="25" maxlength="7" value="<? echo htmlspecialchars($table_heading_ft_style)?>"/>
+			</p>
+
+         </fieldset>
+
+
+
+
+		<fieldset id="look">
+   			<p class="form_heading">Table Column Headings</p>
+          
+     		<p class="form_look">	
+          	Font
+			
+      		<input name="tables_th_ft_fam" type="text" id="tables_th_ft_fam" size="25" maxlength="40" value="<? echo htmlspecialchars($tables_th_ft_fam)?>" />
+			</p>
+      		
+            <p class="form_look">	
+            Font Size
+			
+      		<input name="tables_th_ft_size" type="text" id="tables_th_ft_size" size="25" maxlength="5" value="<? echo htmlspecialchars($tables_th_ft_size)?>"/>
+			</p>
+                  
+            <p class="form_look">	
+            Font Weight
+			
+      		<input name="tables_th_ft_wght" type="text" id="tables_th_ft_wght" size="25" maxlength="12" value="<? echo htmlspecialchars($tables_th_ft_wght)?>"/>
+			</p>
+            
+            <p class="form_look">	
+            Font Color
+			
+      		<input name="tables_th_ft_col" type="text" id="tables_th_ft_col" size="25" maxlength="7" value="<? echo htmlspecialchars($tables_th_ft_col)?>"/>
+			</p>
+            
+             <p class="form_look">	
+            Text Transform
+			
+      		<input name="tables_th_tx_trans" type="text" id="tables_th_tx_trans" size="25" maxlength="11" value="<? echo htmlspecialchars($tables_th_tx_trans)?>"/>
+			</p>
+            
+            <p class="form_look">	
+            Background Color
+			
+      		<input name="tables_th_bkgrd" type="text" id="tables_th_bkgrd" size="25" maxlength="7" value="<? echo htmlspecialchars($tables_th_bkgrd)?>"/>
+			</p>
+            
+      </fieldset>
+
+		<fieldset id="look">
+   			<p class="form_heading_tr">Table Rows</p>
+          
+     		<p class="form_look_tr">	
+          	Font
+			
+      		<input name="tables_tr_ft_fam" type="text" id="tables_tr_ft_fam" size="25" maxlength="40" placeholder="Not Avaliable"/>
+			</p>
+      		
+            <p class="form_look_tr">	
+            Font Size
+			
+      		<input name="tables_tr_ft_size" type="text" id="tables_tr_ft_size" size="25" maxlength="5" placeholder="Not Avaliable"/>
+			</p>
+                  
+            
+            <p class="form_look_tr">	
+            Font Color
+			
+      		<input name="tables_tr_ft_col" type="text" id="tables_tr_ft_col" size="25" maxlength="7" placeholder="Not Avaliable">"/>
+			</p>
+            
+            <p class="form_look_tr">	
+            Background Color
+			
+      		<input name="tables_tr_bkgrd" type="text" id="tables_tr_bkgrd" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+            
+                       <p class="form_look_tr">	
+            Zebra Color
+			
+      		<input name="zebra_col" type="text" id="zebra_col" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+            
+      </fieldset>
+      		<fieldset id="look">
+   			<p class="form_heading_tr">Links</p>
+       
+     		<p class="form_look_tr">	
+          	Font
+			
+      		<input name="link_ft_fam" type="text" id="link_ ft_fam" size="25" maxlength="40" placeholder="Not Avaliable"/>
+			</p>
+            
+      
+      		
+            <p class="form_look_tr">	
+            Font Size
+			
+      		<input name="link_ft_size" type="text" id="link_ ft_size" size="25" maxlength="5" placeholder="Not Avaliable"/>
+			</p>
+                  
+            
+            <p class="form_look_tr">	
+            Font Style
+			
+      		<input name="link_ft_style" type="text" id="link_ ft_style" size="25" maxlength="11" placeholder="Not Avaliable"/>
+			</p>
+            
+            <p class="form_look_tr">	
+            Text Decoration
+			
+      		<input name="link_tx_dec" type="text" id="link_ tx_dec" size="25" maxlength="15" placeholder="Not Avaliable"/>
+			</p>
+            
+                <p class="form_look_tr">	
+            Link Color
+			
+      		<input name="link_tx_col" type="text" id="llink_tx_col" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+            
+            <p class="form_look_tr">	
+            Link Hover
+			
+      		<input name="link_hov_col" type="text" id="link_hov_col" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+            
+
+            
+      </fieldset>
+      
+            		<fieldset id="look">
+
+   			<p class="form_heading_tr">Table Width and Position</p>
+            
+
+            <p class="form_subheading_tr">Sibling Table</p>
+
+          
+     		<p class="form_look_tr">	
+          	Table Width
+			
+      		<input name="sibling_tb_width" type="text" id="sibling_tb_width" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+      		
+            <p class="form_look_tr">	
+            Margin Left
+      		<input name="sibling_tb_marg_left" type="text" id="sibling_tb_marg_left" size="25" maxlength="12" placeholder="Not Avaliable"/>
+			</p>
+                  
+            
+            <p class="form_look_tr">	
+            Margin Right
+			
+      		<input name="sibling_tb_marg_right" type="text" id="sibling_tb_marg_right" size="25" maxlength="12" placeholder="Not Avaliable"/>
+			</p>
+            
+<p class="form_subheading_tr">Spouse Table</p>
+
+          
+     		<p class="form_look_tr">	
+          	Table Width
+			
+      		<input name="spouse_tb_width" type="text" id="spouse_tb_width" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+      		
+            <p class="form_look_tr">	
+            Margin Left
+      		<input name="spouse_tb_marg_left" type="text" id="spouse_tb_marg_left" size="25" maxlength="12" placeholder="Not Avaliable""/>
+			</p>
+                  
+            
+            <p class="form_look_tr">	
+            Margin Right
+			
+      		<input name="spouse_tb_marg_right" type="text" id="spouse_tb_marg_right" size="25" maxlength="12" placeholder="Not Avaliable"/>
+			</p>
+            
+            <p class="form_subheading_tr">Children Table</p>
+
+          
+     		<p class="form_look_tr">	
+          	Table Width
+			
+      		<input name="children_tb_width" type="text" id="children_tb_width" size="25" maxlength="7" placeholder="Not Avaliable"/>
+			</p>
+      		
+            <p class="form_look_tr">	
+            Margin Left
+      		<input name="children_tb_marg_left" type="text" id="children_tb_marg_left" size="25" maxlength="12" placeholder="Not Avaliable"?>
+			</p>
+                  
+            
+            <p class="form_look_tr">	
+            Margin Right
+			
+      		<input name="children_tb_marg_right" type="text" id="children_tb_marg_right" size="25" maxlength="12" placeholder="Not Avaliable" />
+			</p>
+            
+      </fieldset>
+
+		    <p><br /><br /><br />
+      			<input align="center" type="submit" name="submit" id="submit" value="Submit" />
+    
+      		</p>
+
+
+           
+			</form>
+
+<p><strong>Please Note:</strong> Depending on your Setup you may need to hit ctrl F5 to view the changes</p>
+
+
 <?php
 
+if(isset($_POST['submit'])) {
+
+	include ('tablename.php');
+	
+	// Collect data from Form for Table Name
+	
+    $table_heading_ft_fam = sanitize_text_field( $_POST["table_heading_ft_fam"]); 
+	$table_heading_ft_fam = check_input($table_heading_ft_fam); 
+	
+	$table_heading_ft_size = sanitize_text_field( $_POST["table_heading_ft_size"]); 
+	$table_heading_ft_size = check_input($table_heading_ft_size); 
+	
+	$table_heading_ft_wght = sanitize_text_field( $_POST["table_heading_ft_wght"]); 
+	$table_heading_ft_wght = check_input($table_heading_ft_wght); 
+	
+	$table_heading_ft_col = sanitize_text_field( $_POST["table_heading_ft_col"]); 
+	$table_heading_ft_col = check_input($table_heading_ft_col); 
+	
+	$table_heading_ft_style = sanitize_text_field( $_POST["table_heading_ft_style"]); 
+	$table_heading_ft_style = check_input($table_heading_ft_style); 
+	
+	
+	// Collect data from Form for Table Column Headings
+	
+    $tables_th_ft_fam = sanitize_text_field( $_POST["tables_th_ft_fam"]); 
+	$tables_th_ft_fam = check_input($tables_th_ft_fam); 
+	
+	$tables_th_ft_size = sanitize_text_field( $_POST["tables_th_ft_size"]); 
+	$tables_th_ft_size = check_input($tables_th_ft_size); 
+	
+	$tables_th_ft_wght = sanitize_text_field( $_POST["tables_th_ft_wght"]); 
+	$tables_th_ft_wght = check_input($tables_th_ft_wght); 
+	
+	$tables_th_ft_col = sanitize_text_field( $_POST["tables_th_ft_col"]); 
+	$tables_th_ft_col = check_input($tables_th_ft_col); 
+	
+	$tables_th_tx_trans = sanitize_text_field( $_POST["tables_th_tx_trans"]); 
+	$tables_th_tx_trans = check_input($tables_th_tx_trans); 
+	
+	$tables_th_bkgrd = sanitize_text_field( $_POST["tables_th_bkgrd"]); 
+	$tables_th_bkgrd = check_input($tables_th_bkgrd); 
+	
+	
+		
+	
+$wpdb->update($table_name3,
+
+	array(
+	// Update data from Form for Table Name	
+	
+	'table_heading_ft_fam'=>$table_heading_ft_fam,
+	'table_heading_ft_size'=>$table_heading_ft_size,
+	'table_heading_ft_wght'=>$table_heading_ft_wght,
+	'table_heading_ft_col'=>$table_heading_ft_col,
+	'table_heading_ft_style'=>$table_heading_ft_style,
 
 
+	// Update data from Form for Table Column Headings
+
+	'tables_th_ft_fam'=>$tables_th_ft_fam,
+	'tables_th_ft_size'=>$tables_th_ft_size,
+	'tables_th_ft_wght'=>$tables_th_ft_wght,
+	'tables_th_ft_col'=>$tables_th_ft_col,	
+	'tables_th_bkgrd'=>$tables_th_bkgrd,
+	'tables_th_tx_trans'=>$tables_th_tx_trans,
+
+	
+	
+
+	),
+
+	array('id'=> 1));
+	
 }
+}
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
 
 
 
