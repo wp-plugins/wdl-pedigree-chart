@@ -105,24 +105,44 @@
 	$wdl_title_text_pd_left = "20";
 	$wdl_title_text_pd_right = "0";
   
-	$wdl_first_middle_names_ft_align  = "left";
+	$wdl_first_middle_names_ft_align  = "right";
 	$wdl_first_middle_names_ft_family = "Tahoma, Geneva, sans-serif";
 	$wdl_first_middle_names_ft_weight = "normal";
 	$wdl_first_middle_names_ft_color = "000000";
-	$wdl_first_middle_names_ft_size = "16";
-	$wdl_first_middle_names_ft_style = "normal";
+	$wdl_first_middle_names_ft_size = "28";
+	$wdl_first_middle_names_ft_style = "italic";
   
-	$wdl_family_name_ft_align = "left";
+	$wdl_family_name_ft_align = "right";
 	$wdl_family_name_ft_family = "Tahoma, Geneva, sans-serif";
 	$wdl_family_name_ft_weight = "bold";
 	$wdl_family_name_ft_color = "000000";
-	$wdl_family_name_ft_size  = "24";
+	$wdl_family_name_ft_size  = "38";
 	$wdl_family_name_ft_style = "normal";
 	$wdl_family_name_ft_transform = "uppercase";
-	$wdl_family_name_text_pd_top = "0";
-	$wdl_family_name_text_pd_bottom = "0";
+	$wdl_family_name_text_pd_top = "20";
+	$wdl_family_name_text_pd_bottom = "20";
+	
+	$wdl_maiden_name_ft_align = "right";
+	$wdl_maiden_name_ft_family = "Tahoma, Geneva, sans-serif";
+	$wdl_maiden_name_ft_weight = "bold";
+	$wdl_maiden_name_ft_color = "000000";
+	$wdl_maiden_name_ft_size  = "24";
+	$wdl_maiden_name_ft_style = "normal";
+	$wdl_maiden_name_ft_transform = "none";
+	$wdl_maiden_name_text_pd_top = "0";
+	$wdl_maiden_name_text_pd_bottom = "0";
+	
+	$wdl_nee_ft_align = "right";
+	$wdl_nee_ft_family = "Tahoma, Geneva, sans-serif";
+	$wdl_nee_ft_weight = "bold";
+	$wdl_nee_ft_color = "000000";
+	$wdl_nee_ft_size  = "16";
+	$wdl_nee_ft_style = "italic";
+	$wdl_nee_ft_transform = "none";
+	$wdl_nee_text_pd_left = "0";
+	$wdl_nee_text_pd_right = "10";
  
-	$wdl_dates_ft_align = "left";
+	$wdl_dates_ft_align = "right";
 	$wdl_dates_ft_family = "Tahoma, Geneva, sans-serif";
 	$wdl_dates_ft_weight = "normal";
 	$wdl_dates_ft_color = "000000";

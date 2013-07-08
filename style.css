@@ -52,54 +52,6 @@ fieldset#look input{
 
 }
 
-fieldset#lookcss {
-
-
-
-	border-color:				#D3D3D3;
-
-	border-style:				solid;
-
-	border-width:				2px;
-
-}
-
-fieldset#lookcss input{
-
-	float:						right;
-
-	margin-right:				10px;
-
-
-
-}
-
-
-fieldset#lookcss input{
-
-	float:						right;
-
-	margin-right:				10px;
-	
-	color:						#CCC;
-
-
-
-}
-
-form p.lookcss{
-
-	margin-left:				10px;
-
-	font-size: 					14px;
-
-	line-height:				30px;
-	
-	color:						#CCC;			
-
-
-}
-
 
 
 form p.form_look{
@@ -109,6 +61,7 @@ form p.form_look{
 	font-size: 					14px;
 
 	line-height:				30px;
+
 
 
 
@@ -125,6 +78,8 @@ form p.form_look{
 	padding-left:				10px;
 
 }
+
+
 
 
 
@@ -921,6 +876,7 @@ width:				1000px;
 
 	width:				1000px;
 	height:				850px;
+
 
 }
 

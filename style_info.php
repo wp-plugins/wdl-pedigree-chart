@@ -107,6 +107,26 @@
 	$wdl_family_name_ft_transform =	$wpdb->get_var( "SELECT wdl_family_name_ft_transform FROM $table_name3 WHERE insert_number = 1 ");
 	$wdl_family_name_text_pd_top =	$wpdb->get_var( "SELECT wdl_family_name_text_pd_top FROM $table_name3 WHERE insert_number = 1 ");
 	$wdl_family_name_text_pd_bottom = $wpdb->get_var( "SELECT wdl_family_name_text_pd_bottom FROM $table_name3 WHERE insert_number = 1 ");
+
+	$wdl_maiden_name_ft_align = $wpdb->get_var( "SELECT wdl_maiden_name_ft_align FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_family = $wpdb->get_var( "SELECT wdl_maiden_name_ft_family FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_weight = $wpdb->get_var( "SELECT wdl_maiden_name_ft_weight FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_color = $wpdb->get_var( "SELECT wdl_maiden_name_ft_color FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_size = $wpdb->get_var( "SELECT wdl_maiden_name_ft_size FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_style = $wpdb->get_var( "SELECT wdl_maiden_name_ft_style FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_ft_transform =	$wpdb->get_var( "SELECT wdl_maiden_name_ft_transform FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_text_pd_top =	$wpdb->get_var( "SELECT wdl_maiden_name_text_pd_top FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_maiden_name_text_pd_bottom = $wpdb->get_var( "SELECT wdl_maiden_name_text_pd_bottom FROM $table_name3 WHERE insert_number = 1 ");
+	
+	$wdl_nee_ft_align = $wpdb->get_var( "SELECT wdl_nee_ft_align FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_family = $wpdb->get_var( "SELECT wdl_nee_ft_family FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_weight = $wpdb->get_var( "SELECT wdl_nee_ft_weight FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_color = $wpdb->get_var( "SELECT wdl_nee_ft_color FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_size = $wpdb->get_var( "SELECT wdl_nee_ft_size FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_style = $wpdb->get_var( "SELECT wdl_nee_ft_style FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_ft_transform =	$wpdb->get_var( "SELECT wdl_nee_ft_transform FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_text_pd_left =	$wpdb->get_var( "SELECT wdl_nee_text_pd_left FROM $table_name3 WHERE insert_number = 1 ");
+	$wdl_nee_text_pd_right = $wpdb->get_var( "SELECT wdl_nee_text_pd_right FROM $table_name3 WHERE insert_number = 1 ");
 	
 	$wdl_dates_ft_align =$wpdb->get_var( "SELECT wdl_dates_ft_align FROM $table_name3 WHERE insert_number = 1 ");
 	$wdl_dates_ft_family = $wpdb->get_var( "SELECT wdl_dates_ft_family FROM $table_name3 WHERE insert_number = 1 ");
@@ -624,6 +644,32 @@ table.shortcode_tables a:hover {
 	text-transform:			<? echo $wdl_family_name_ft_transform; ?>;
 	padding-top:			<? echo $wdl_family_name_text_pd_top; ?>px;
 	padding-bottom:			<? echo $wdl_family_name_text_pd_bottom; ?>px;
+}
+
+.wdl_maiden_name {
+	
+	
+	text-align:				<? echo $wdl_maiden_name_ft_align; ?>;
+	font-family:			<? echo $wdl_maiden_name_ft_family; ?>;
+	font-weight:			<? echo $wdl_maiden_name_ft_weight; ?>;
+	color:					#<? echo $wdl_maiden_name_ft_color; ?>;
+	font-size:				<? echo $wdl_maiden_name_ft_size; ?>px;
+	font-style:				<? echo $wdl_maiden_name_ft_style; ?>;
+	text-transform:			<? echo $wdl_maiden_name_ft_transform; ?>;
+	padding-top:			<? echo $wdl_maiden_name_text_pd_top; ?>px;
+	padding-bottom:			<? echo $wdl_maiden_name_text_pd_bottom; ?>px;
+}
+.wdl_nee {
+	text-align:				<? echo $wdl_nee_ft_align; ?>;
+	font-family:			<? echo $wdl_nee_ft_family; ?>;
+	font-weight:			<? echo $wdl_nee_ft_weight; ?>;
+	color:					#<? echo $wdl_nee_ft_color; ?>;
+	font-size:				<? echo $wdl_nee_ft_size; ?>px;
+	font-style:				<? echo $wdl_nee_ft_style; ?>;
+	text-transform:			<? echo $wdl_nee_ft_transform; ?>;
+	padding-left:			<? echo $wdl_nee_text_pd_left; ?>px;
+	padding-right:			<? echo $wdl_nee_text_pd_right; ?>px;
+	
 }
 
 .wdl_dates {
