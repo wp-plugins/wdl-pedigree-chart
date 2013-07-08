@@ -20,11 +20,12 @@ Display 3 Generations of your Family on one page with this fully administrable p
 *   To Edit or Delete Family Database information directly through the Plugin Menus
 *   Link to Personal Pages through the pedigree tree
 *   Add additional information to the page
-*   Add the shortcodes below to add pedigree, sibling, spouse and children lists.
+*   Add the shortcodes below to add title, pedigree, sibling, spouse and children lists.
 *   Create a unique Database driven Menu system to navigate your site
 
 <strong>Using the built in shortcodes you can</strong>
 
+*   Add Title Information and Profile Image
 *   Add 3 Generation Linkable Pedigree Chart
 *   Add Sibling List
 *   Add Multiple Spouses List
