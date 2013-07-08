@@ -7,7 +7,7 @@
 Plugin Name:  WDL Family History and Genealogy Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
 Description: Adds a 3 Generation pedigree chart to your page
-Version: 1.3.4
+Version: 1.3.5
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
 License: © Copyright 2013. All Rights Reserved
@@ -2503,7 +2503,7 @@ function edit_person() {
 
     <br />
     <br />
-    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $12.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
     <p> The Full version offers everything you see here but with:</p>
@@ -2583,7 +2583,7 @@ function edit_marriage_date () {
 
     <br />
     <br />
-    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $12.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
     <p> The Full version offers everything you see here but with:</p>
@@ -2663,7 +2663,7 @@ function delete_person () {
 
     <br />
     <br />
-    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $12.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
     <p> The Full version offers everything you see here but with:</p>
@@ -2741,7 +2741,7 @@ function delete_marriage_data () {
 
     <br />
     <br />
-    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $12.99 AUD</p> 
+    <p>This Link has been deactivated in the Limited Version. <br /><br />Please Purchase the Full Version of WDL Pedigree Chart for only $9.99 AUD</p> 
     <br />
 	
     <p> The Full version offers everything you see here but with:</p>
