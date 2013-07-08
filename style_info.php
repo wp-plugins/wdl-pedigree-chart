@@ -587,18 +587,22 @@ table.shortcode_tables a:hover {
 
 #wdl_title_container {
 
-	width:					100%;
+	width:					90%;
 	height:					250px;
+
+
 
 	
 }
 
 #wdl_title_profile {
 
-	width:					95%;
+	width:					100%;
+	height:					150px;
 	
 
 }
+
 
 
 
