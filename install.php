@@ -4366,18 +4366,11 @@ function faqs () {
     <h3>7)<strong> I Keep getting a You do not have sufficient permissions to access this page error </strong>
     </h3>
     <p>This error can be caused if you have two or more versions of wordpress running or you have several wordpress installations installed in different subdirectories. This plugin uses the wordpress codex bloginfo(‘url’); to find the wordpress url path and may pick up the wrong url.      </p>
-    <p>I am currently working on a solution which should hopefully be available in future updates.      </p>
-    <p>As a work around, open the install.php file in a editor such as notepad (make a copy first), find the header(“Location: “.bloginfo(‘url’).”/wp-admin/admin.php …… lines and replace it with the path to your wp-admin directory.</p>
-    <p>&nbsp;</p>
-    <p> <strong>For example.</strong></p>
-    <p>&nbsp;</p>
-    <p>If your path is www.mydomainname.com.au/subdirectory/wp-admin replace      </p>
-    <p>&nbsp;</p>
-    <p><em>header(“Location: “.bloginfo(‘url’).”/wp-admin/admin.php?page=…… “);      </em></p>
-    <p><strong>with      </strong></p>
-    <p><em>header(“Location: http://www.mydomainname.com.au/subdirectory/wp-admin/admin.php?page=……”);      </em></p>
-    <p>&nbsp;</p>
-    <p>This, hopefully should rectify the error. </p>
+    <p><strong>WordPress Address (URL)</strong></p>
+    <p>Update the URL to the correct address.</p>
+    <p><strong><span data-mce-style="line-height: 1.714285714; font-size: 1rem;">Site Address (URL)</span></strong></p>
+    <p>Update the URL to the correct address.</p>
+    <p>This, hopefully should rectify the error.</p>
     <p>&nbsp;</p>
     <p><a name="profimage" id="profimage"></a></p>
     <p>&nbsp;</p>
