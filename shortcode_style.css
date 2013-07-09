@@ -1,0 +1,76 @@
+
+/*Set styling for shortcode tables*/
+
+<!-- Set Table Properties -->
+
+
+
+
+table.shortcode_tables {
+	font-family:		Tahoma, Geneva, sans-serif;
+	width:				100%;
+
+}
+table.shortcode_tables th {
+	font-family:		Tahoma, Geneva, sans-serif;
+	font-size:			12px;
+	font-weight:		bold;
+	background:			#666;	
+	color: 				#ffffff;
+	text-transform:		uppercase;
+}
+
+table.shortcode_tables tr {
+	font-family:		Tahoma, Geneva, sans-serif;
+	font-size:			13px;
+	color: 				#000000;
+	background:			#ffffff;	
+}
+
+<!-- Set Link Properties -->
+
+table.shortcode_tables tr:nth-of-type(odd) {
+  background-color:	#F2F2F2 ;
+}
+
+table.shortcode_tables a {
+	font-family:		Tahoma, Geneva, sans-serif;
+	font-size:		 	13px;
+	font-style:			normal;
+	text-decoration:	none;	
+}
+
+
+table.shortcode_tables a:hover {
+
+	color:				#000000;
+}
+
+<!-- End Link Properties -->
+
+.shortcode_outer {
+	width:				100%;
+
+}
+
+/*Set Shortcode Alignment*/
+
+.sibling_inner {
+	width:				100%;
+	margin-left: 		auto;
+	margin-right:		auto;
+}
+
+.spouse_inner {
+	width:				100%;
+	margin-left: 		auto;
+	margin-right:		auto;
+}
+
+.children_inner {
+	width:				100%;
+	margin-left: 		auto;
+	margin-right:		auto;
+}
+
+/*End styling for shortcode tables*/
