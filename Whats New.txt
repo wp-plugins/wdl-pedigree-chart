@@ -1,0 +1,35 @@
+Version 5.0.4. 
+
+1. Addition of Title and Profile Image Shortcode
+
+2. Rectification of a major bug where themes with footers did not increase in height or page length.
+
+3. Addition of Date of Birth Column to Sibling and Children shortcode tables
+
+4. Improvements to the Sibling, Children and Spouse shortcode.
+
+5. Update code for adding WDL Pedigree Category to posts
+
+
+
+Version 5.0.3. 
+
+1. Removal of css bug which effects the theme menu
+
+
+Version 5.0.2
+
+1. Addition of a Look and Feel Link to change the colors and fonts of the shortcode Tables
+
+
+Version 5.0.1
+
+1. Addition of the add child option in the Add Family Menu
+
+2. Addition of broken or New Link Menu page
+
+3. Changes to the sibling shortcode to allow viewing of siblings of only one known parent;
+
+4. Update Pedigree Chart Icon Link
+
+5. The Delete link from the Spouse List has been removed
