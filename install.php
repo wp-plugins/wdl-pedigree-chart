@@ -4,10 +4,10 @@
 
 /*
 
-Plugin Name:  WDL Family History and Genealogy Pedigree Chart
+Plugin Name:  MWS Family History and Genealogy Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
-Description: Adds a 3 Generation pedigree chart to your page
-Version: 1.3.7
+Description: Add Pedigree charts, sibling, spouse and children lists, 
+Version: 1.3.8
 Author: Warwick Lyons
 Author URI: http://lyons-barton.com
 License: © Copyright 2013. All Rights Reserved
