@@ -565,7 +565,7 @@ if ($children ==="yes") {
 	// Loop through the results to display the obtained information
 
 	foreach ($result as $result){
-	$sibling_id = $sibling->id;	
+	$sibling_id = $result->id;	
 
 ?>
 
@@ -1817,28 +1817,28 @@ function add_new_family_member () {
 <link rel="stylesheet" type="text/css" href="<?php echo plugins_url( 'style.css', __FILE__ );?>"/>
 <?php
 include ('tablename.php');
-
-	$sql="SELECT * FROM $table_name ORDER BY first_name"; 
-	$result=mysql_query($sql); 
+global $wpdb;
+	// $sql="SELECT * FROM $table_name ORDER BY first_name"; 
+	$result = $wpdb->get_results ( "SELECT * FROM $table_name ORDER BY first_name");
 
 	$options=""; 
 
-	while ($row=mysql_fetch_array($result)) { 
+	foreach ( $result as $result )  { 
 
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
+    $id=sanitize_text_field( $result->id); 
+	$id=check_input($result->id);
 	
 	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
+    $first_name=sanitize_text_field( $result->first_name); 
+	$first_name=check_input($result->first_name); 
 	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
+    $family_name=sanitize_text_field( $result->family_name); 
+	$family_name=check_input($result->family_name); 
 	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]);
-	$date_of_birth=check_input($row["date_of_birth"]);
+    $date_of_birth=sanitize_text_field( $result->date_of_birth);
+	$date_of_birth=check_input($result->date_of_birth);
 	
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---  ".$first_name ." ".$family_name."   ---  ".$date_of_birth; 
+    $options.="<OPTION VALUE='". $result->id. "'>".$id."   ---  ".$first_name ." ".$family_name."   ---  ".$date_of_birth; 
 	}
 
 ?> 
@@ -2047,13 +2047,14 @@ include ('tablename.php');
 	
 // Obtain the id of the insert above
 
-	$strSql = 'select last_insert_id() as lastId'; 
-	 
-  $result = mysql_query($strSql);  
+	// $strSql = 'select last_insert_id() as lastId'; 
+	$result = $wpdb->get_results ( "select last_insert_id() as lastId"); 
   
-  while($row = @mysql_fetch_assoc($result)){  
+  // $result = mysql_query($strSql);  
   
-          $lastid = $row['lastId'];
+  foreach ( $result as $result ){  
+  
+          $lastid = $result->lastId;
 
   }
 	
@@ -2189,26 +2190,29 @@ function add_spouse () {
 <?php
 include ('tablename.php');
 
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
-	$result=mysql_query($sql); 
+	//$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "; 
+	
+	$result = $wpdb->get_results ("SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Male' ORDER BY first_name "); 
+	
+	// $result=mysql_query($sql); 
 
 	$options=""; 
 
-	while ($row=mysql_fetch_array($result)) { 
+	foreach ( $result as $result )  { 
 
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
+    $id=sanitize_text_field( $result->id); 
+	$id=check_input($result->id);
 	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
+    $first_name=sanitize_text_field( $result->first_name); 
+	$first_name=check_input($result->first_name); 
 	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
+    $family_name=sanitize_text_field( $result->family_name); 
+	$family_name=check_input($result->family_name); 
 	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
+    $date_of_birth=sanitize_text_field( $result->date_of_birth); 
+	$date_of_birth=check_input($result->date_of_birth); 
 	
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+    $options.="<OPTION VALUE='". $result->id. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
 	}
 
 ?> 
@@ -2227,25 +2231,28 @@ include ('tablename.php');
 	</select>
     
     <?php
-	$sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
-	$result=mysql_query($sql); 
-
+	// $sql="SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name"; 
+	//$result=mysql_query($sql); 
+	
+	$result = $wpdb->get_results ("SELECT id, first_name, family_name, date_of_birth, date_of_birth FROM $table_name  WHERE sex = 'Female' ORDER BY first_name");
+	
 	$options=""; 
 
-	while ($row=mysql_fetch_array($result)) { 
+	foreach ( $result as $result )  { 
 
-    $id=sanitize_text_field( $row["id"]); 
-	$id=check_input($row["id"]);
+    $id=sanitize_text_field( $result->id); 
+	$id=check_input($result->id);
 	
-    $first_name=sanitize_text_field( $row["first_name"]); 
-	$first_name=check_input($row["first_name"]); 
+    $first_name=sanitize_text_field( $result->first_name); 
+	$first_name=check_input($result->first_name); 
 	
-    $family_name=sanitize_text_field( $row["family_name"]); 
-	$family_name=check_input($row["family_name"]); 
+    $family_name=sanitize_text_field( $result->family_name); 
+	$family_name=check_input($result->family_name); 
 	
-    $date_of_birth=sanitize_text_field( $row["date_of_birth"]); 
-	$date_of_birth=check_input($row["date_of_birth"]); 
-    $options.="<OPTION VALUE='". $row['id']. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
+    $date_of_birth=sanitize_text_field( $result->date_of_birth); 
+	$date_of_birth=check_input($result->date_of_birth); 
+    
+	$options.="<OPTION VALUE='". $result->id. "'>".$id."   ---   ".$first_name ." ".$family_name."    --- ".$date_of_birth; 
 	}
 	?>
 
@@ -2376,13 +2383,15 @@ echo"'<option value='$k'>$v</option>" . PHP_EOL ;
 
 	$wpdb->insert($table_name2,array('person_id'=>$person_id, 'spouse_id'=>$spouse_id, 'date_of_marriage'=>$date_of_marriage));
 	
-	$strSql = 'select last_insert_id() as lastId';  
+	// $strSql = 'select last_insert_id() as lastId';  
+	
+	$result = $wpdb->get_results ( 'select last_insert_id() as lastId');  
 
-  	$result = mysql_query($strSql);  
+  	// $result = mysql_query($strSql);  
   
-  	while($row = @mysql_fetch_assoc($result)){  
+  	foreach ( $result as $result ) {  
   
-    $marriage_id = $row['lastId'];
+    $marriage_id = $result->lastId;
 	$marriage_status = 'Married';
 }
 
