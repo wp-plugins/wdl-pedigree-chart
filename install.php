@@ -4,7 +4,7 @@
 
 /*
 
-Plugin Name:  MWS Family History and Genealogy Pedigree Chart
+Plugin Name:  WDL Family History and Genealogy Pedigree Chart
 Plugin URI: http://lyons-barton.com/wdl-pedigree-chart
 Description: Add Pedigree charts, sibling, spouse and children lists, 
 Version: 1.3.8
