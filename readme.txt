@@ -3,7 +3,7 @@ Contributors: wdlyons
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NRKB9T
 Tags: Family History, Genealogy, Pedigree Chart
 Requires at least: 3.3
-Tested up to: 3.5.1
+Tested up to: 4.2
 Stable tag: 1.3.2
 
 Display 3 Generations of your Family on one page with this fully administrable and functional pedigree chart.
